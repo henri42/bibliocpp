@@ -11,6 +11,7 @@
 
 class media
 {
+//Attributs
 protected:
 	std::string m_auteur;
 	std::string m_nom;
