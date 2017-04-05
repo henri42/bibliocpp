@@ -22,4 +22,4 @@ class mediatheque
 		void ajoutlivre(livre &livre);
 		void suppressionlivre(livre &livre);
 
-}
+};
