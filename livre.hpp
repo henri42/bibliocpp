@@ -1,8 +1,7 @@
 /* livre.hpp */
-#include <revue.hpp>
 #include <string>
 
-class mediatheque
+class livre
 {
 //Attributs
 private :
@@ -20,5 +19,4 @@ public :
 	~livre();
 	void ajoutlivre(livre &livre);
 	void suppressionlivre(livre &livre);
-
 };
