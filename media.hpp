@@ -17,6 +17,7 @@ protected:
 	std::string m_nom;
 	int m_type;
 	int m_dispo;
+	int m_id;
 
 public:
 	media();

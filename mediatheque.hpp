@@ -1,39 +1,31 @@
 /* mediatheque.hpp */
 #include <media.hpp>
 #include <livre.hpp>
+#include <vector>
 
 class mediatheque
 {
 private :
-	int nb_media;
-	vector<media> list_media;
+	int m_nb_media;				// nombre de media dans la mediatheque
+	int m_next_entry; 			// indice que prendra le prochain media ajoute
+	vector<media> m_list_media;	
 
 public :
 	// constructeurs et destructeurs
 	mediatheque();
-	mediatheque(char* filename);//constructeurs d'une bilbliotèque a partir d'un fichier
+	// mediatheque(char* filename);//constructeurs d'une bilbliotèque a partir d'un fichier
 	~mediatheque();
 
 	//methodes
-	ajout(livre new_livre);
-	ajout(revue new_revue);
-	ajout(vhs new_vhs);
-	ajout(cd new_cd);
-	ajout(dvd new_dvd);
-	ajout(ressource new_revue);
+	void ajout(media new_media);
 
-	suppr(livre _livre);
-	suppr(revue _revue);
-	suppr(vhs _vhs);
-	suppr(cd _cd);
-	suppr(dvd _dvd);
-	suppr(ressource _revue);
+	// void suppr(media del_media);
 		
-	consulter(media cible);
+	// void consulter(int id_cible);
 
-	reserver(media cible);
-	emprunter(media cible);
-	rendre(media cible);
+	// void reserver(int id_cible);
+	// void emprunter(int id_cible);
+	// void rendre(int id_cible);
 
-	rechercher(char* nom);
+	// void rechercher(char* nom);
 }
