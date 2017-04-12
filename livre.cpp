@@ -4,7 +4,7 @@
 
 livre::livre()
 {
-
+	m_dispo = EMPRUNTE;	
 }
 
 livre::~livre()
