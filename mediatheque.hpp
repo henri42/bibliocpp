@@ -8,7 +8,7 @@ class mediatheque
 private :
 	int m_nb_media;				// nombre de media dans la mediatheque
 	int m_next_entry; 			// indice que prendra le prochain media ajoute
-	vector<media> m_list_media;	
+	vector<media*> m_list_media;	
 
 public :
 	// constructeurs et destructeurs

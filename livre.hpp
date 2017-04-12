@@ -1,7 +1,7 @@
 /* livre.hpp */
 #include <string>
 
-class livre
+class livre : public media
 {
 //Attributs
 private :
@@ -17,6 +17,4 @@ public :
 	// constructeurs et destructeurs
 	livre();
 	~livre();
-	void ajoutlivre(livre &livre);
-	void suppressionlivre(livre &livre);
 };
