@@ -4,6 +4,7 @@
 using namespace std;
 
 std::vector<revue*>::const_iterator ii;
+int i = 1;
 
 revue::revue()
 {
@@ -16,15 +17,20 @@ revue::~revue()
 	
 }
 
-void revue::affiche_articles(int all)
+void revue::affiche_articles(int index)
 {
-	if (all)
+	if (id == -1)
 	{
 		for (ii = article.begin(); ii != article.end(); ii++)
-			cout << *ii << endl;
+		{
+				cout << i << ". " << *ii << endl;
+				i++;
+		}
 	}
 
 	else
-		cout << article[m_id_article] << endl;
+	{
+		cout << article[index] << endl;
+	}
 
 }
