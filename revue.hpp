@@ -1,5 +1,8 @@
 /* revue.hpp */
-#include <livre.hpp>
+#ifndef DEF_revue
+#define DEF_revue
+
+#include "livre.hpp"
 #include <string>
 #include <vector>
 
@@ -13,12 +16,17 @@ class revue
 
 		std::string m_editeur;
 
-		std::vector<string> article;	//Collection d'articles contenus dans la revue
+		std::vector<revue*> article;	//Collection d'articles contenus dans la revue
 	
 	//Méthodes
 	public :
+
+		void affiche_articles(int all);		//Renvoit la liste de tous les articles de la revue si "all" vaut 1 ou sinon l'article d'index "m_id_article" si "all" vaut 0
+
 		// constructeurs et destructeurs
 		revue();
 		~revue();
 
 };
+
+#endif
