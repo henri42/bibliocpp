@@ -1,4 +1,7 @@
 /* mediatheque.hpp */
+#ifndef DEF_MEDIATHEQUE
+#define DEF_MEDIATHEQUE
+
 #include "media.hpp"
 #include "livre.hpp"
 #include <vector>
@@ -29,3 +32,5 @@ public :
 
 	// void rechercher(char* nom);
 };
+
+#endif

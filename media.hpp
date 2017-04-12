@@ -1,3 +1,6 @@
+#ifndef DEF_MEDIA
+#define DEF_MEDIA
+
 #include <string>
 
 #define LIVRE		0
@@ -26,3 +29,5 @@ public:
 	~media();
 	
 };
+
+#endif
