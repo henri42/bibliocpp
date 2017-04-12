@@ -1,4 +1,4 @@
-# Nom de l'exÃ©cutable
+# Nom de l'executable
 TARGET=game
 
 CXX=g++
