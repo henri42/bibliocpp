@@ -21,4 +21,4 @@ class revue
 		revue();
 		~revue();
 
-}
+};

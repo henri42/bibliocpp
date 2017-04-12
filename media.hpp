@@ -1,3 +1,5 @@
+#include <string>
+
 #define LIVRE		0
 #define REVUE		1
 #define VHS			2
