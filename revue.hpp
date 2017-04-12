@@ -21,7 +21,7 @@ class revue
 	//Méthodes
 	public :
 
-		void affiche_articles(int all);		//Renvoit la liste de tous les articles de la revue si "all" vaut 1 ou sinon l'article d'index "m_id_article" si "all" vaut 0
+		void affiche_articles(int index);		//Renvoit la liste de tous les articles de la revue si "index" vaut -1 ou sinon l'article d'index "index"
 
 		// constructeurs et destructeurs
 		revue();
