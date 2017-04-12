@@ -1,6 +1,6 @@
 /* mediatheque.hpp */
-#include <media.hpp>
-#include <livre.hpp>
+#include "media.hpp"
+#include "livre.hpp"
 #include <vector>
 
 class mediatheque
@@ -8,7 +8,7 @@ class mediatheque
 private :
 	int m_nb_media;				// nombre de media dans la mediatheque
 	int m_next_entry; 			// indice que prendra le prochain media ajoute
-	vector<media*> m_list_media;	
+	std::vector<media*> m_list_media;	
 
 public :
 	// constructeurs et destructeurs
@@ -17,7 +17,7 @@ public :
 	~mediatheque();
 
 	//methodes
-	void ajout(media new_media);
+	void ajout(media* new_media);
 
 	// void suppr(media del_media);
 		
@@ -28,4 +28,4 @@ public :
 	// void rendre(int id_cible);
 
 	// void rechercher(char* nom);
-}
+};

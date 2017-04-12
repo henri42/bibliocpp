@@ -1,5 +1,9 @@
+#ifndef DEF_LIVRE
+#define DEF_LIVRE
+
 /* livre.hpp */
 #include <string>
+#include "media.hpp"
 
 class livre : public media
 {
@@ -18,3 +22,5 @@ public :
 	livre();
 	~livre();
 };
+
+#endif

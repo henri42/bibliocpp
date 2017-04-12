@@ -1,4 +1,4 @@
-#include <mediatheque.hpp>
+#include "mediatheque.hpp"
 
 mediatheque::mediatheque()
 {
@@ -6,7 +6,7 @@ mediatheque::mediatheque()
 	m_next_entry = 0;
 }
 
-void mediatheque::ajout(media new_media)
+void mediatheque::ajout(media* new_media)
 {
 
 	//new_media.set_id(m_next_entry);		// on donne son index au nouveau media

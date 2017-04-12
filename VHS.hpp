@@ -17,4 +17,4 @@ class VHS
 		VHS();
 		~VHS();
 
-}
+};

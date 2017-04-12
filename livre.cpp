@@ -1,5 +1,5 @@
 /* livre.cpp */
-#include
+#include "livre.hpp"
 
 
 livre::livre()
@@ -7,7 +7,7 @@ livre::livre()
 
 }
 
-~livre::livre()
+livre::~livre()
 {
 	
 }
