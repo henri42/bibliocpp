@@ -27,6 +27,7 @@ protected:
 public:
 	media();
 	~media();
+	void test1();
 	
 };
 

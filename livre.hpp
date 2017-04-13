@@ -3,6 +3,7 @@
 
 /* livre.hpp */
 #include <string>
+#include <iostream>
 #include "media.hpp"
 
 class livre : public media
@@ -21,6 +22,11 @@ public :
 	// constructeurs et destructeurs
 	livre();
 	~livre();
+
+	void affiche(){
+		std::cout << m_collection << std::endl;
+		std::cout << m_dispo << std::endl;
+	}
 };
 
 #endif

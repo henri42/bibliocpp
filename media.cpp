@@ -3,7 +3,7 @@
 
 media::media()
 {
-
+	m_nom="wars";
 }
 
 media::~media()
