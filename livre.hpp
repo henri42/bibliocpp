@@ -9,12 +9,10 @@
 class livre : public media
 {
 //Attributs
-private :
-	std::string m_auteur;
+protected :
 	int m_annee;
 	int m_pages;
 	std::string m_collection;
-	std::string m_titre;
 	std::string m_resume;
 	
 //Méthodes
@@ -23,10 +21,7 @@ public :
 	livre();
 	~livre();
 
-	void affiche(){
-		std::cout << m_collection << std::endl;
-		std::cout << m_dispo << std::endl;
-	}
+	void affiche(); //la fonction herite du virtual de media::affiche()
 };
 
 #endif

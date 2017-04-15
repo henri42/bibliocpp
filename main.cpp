@@ -8,10 +8,11 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 
-	mediatheque* test = new mediatheque();
+	mediatheque test;
 	livre* book = new livre();
-	test->ajout(book);
-	(test->m_list_media)[1]->test1();
+	test.m_liste.push_back(book);
+
+	(test.m_liste[0])->affiche();
 
 	return 0;
 }

@@ -11,24 +11,22 @@ class mediatheque
 public :
 	int m_nb_media;				// nombre de media dans la mediatheque
 	int m_next_entry; 			// indice que prendra le prochain media ajoute
-	std::vector<livre*> m_livre;
-	std::vector<revue*> m_revue;
-	std::vector<vhs*> m_vhs;
-	std::vector<cd*> m_cd;
-	std::vector<ressource*> m_ressource;
+	std::vector<media*> m_liste; //
+	std::vector<int> m_indices;	// indices
+
 
 public :
 	// constructeurs et destructeurs
 	mediatheque();
 	// mediatheque(char* filename);//constructeurs d'une bilbliotèque a partir d'un fichier
-	~mediatheque();
+	~mediatheque(){}
 
 	//methodes
-	void ajout(media* new_livre);
-	void ajout(revue* new_revue);
-	void ajout(vhs* new_vhs);
-	void ajout(media* new_cd);
-	void ajout(media* new_dvd);
+	void ajout(livre* new_livre);
+	// void ajout(revue* new_revue);
+	// void ajout(vhs* new_vhs);
+	// void ajout(cd* new_cd);
+	// void ajout(ressource* new_ressource);
 
 	// void suppr(media del_media);
 		
