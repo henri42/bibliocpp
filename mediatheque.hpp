@@ -10,9 +10,8 @@ class mediatheque
 {
 public :
 	int m_nb_media;				// nombre de media dans la mediatheque
-	int m_next_entry; 			// indice que prendra le prochain media ajoute
 	std::vector<media*> m_liste; //
-	std::vector<int> m_indices;	// indices
+	std::vector<int> m_indices;	// indices que prendront les prochains medias ajoutes
 
 
 public :
@@ -22,11 +21,8 @@ public :
 	~mediatheque(){}
 
 	//methodes
-	void ajout(livre* new_livre);
-	// void ajout(revue* new_revue);
-	// void ajout(vhs* new_vhs);
-	// void ajout(cd* new_cd);
-	// void ajout(ressource* new_ressource);
+	void ajout(media* new_media);
+
 
 	// void suppr(media del_media);
 		

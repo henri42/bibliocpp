@@ -9,10 +9,13 @@ int main(int argc, char const *argv[])
 {
 
 	mediatheque test;
-	livre* book = new livre();
-	test.m_liste.push_back(book);
+	livre* book1 = new livre();
+	livre* book2 = new livre();
+	test.ajout(book1);
+	test.ajout(book2);	
 
 	(test.m_liste[0])->affiche();
+	(test.m_liste[1])->affiche();
 
 	return 0;
 }

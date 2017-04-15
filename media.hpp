@@ -30,6 +30,9 @@ public:
 	~media();
 
 	virtual void affiche();
+	int get_id();
+	void set_id(int id);
+
 	
 };
 
