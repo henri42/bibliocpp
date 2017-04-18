@@ -2,6 +2,7 @@
 #define DEF_MEDIA
 
 #include <string>
+#include <iostream>
 
 #define LIVRE		0
 #define REVUE		1
@@ -27,7 +28,11 @@ protected:
 public:
 	media();
 	~media();
-	void test1();
+
+	virtual void affiche();
+	int get_id();
+	void set_id(int id);
+
 	
 };
 
