@@ -1,7 +1,7 @@
+/* livre.hpp */
 #ifndef DEF_LIVRE
 #define DEF_LIVRE
 
-/* livre.hpp */
 #include <string>
 #include <iostream>
 #include "media.hpp"
@@ -19,9 +19,10 @@ protected :
 public :
 	// constructeurs et destructeurs
 	livre();
+	livre(int annee, int pages, std::string m_collection, std::string m_resume);
 	~livre();
 
-	void affiche(); //la fonction herite du virtual de media::affiche()
+	virtual void affiche();
 };
 
 #endif

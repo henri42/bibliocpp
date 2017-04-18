@@ -1,25 +1,24 @@
 /* livre.cpp */
 #include "livre.hpp"
-#include "media.hpp"
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 livre::livre() //constructeur bateau
 {
-<<<<<<< HEAD
-	m_auteur = "levy";
-	m_annee = 1956;
-	m_pages = 345;
-=======
-	m_auteur = "gainsbourg";
-	m_nom = "bonnie";
-	m_type = LIVRE;
-	m_dispo = DISPONIBLE;
-	m_id = 1;
+	m_annee = 2017;
+	m_pages = 100;
+	m_collection = "Hachette";
+	m_resume = "Coolos";
+}
 
-	m_annee = 1992;
-	m_pages = 321;
->>>>>>> da79e827ebc19e9e887767bbc6018e9bd6abe8ae
-	m_collection = "hachette";
-	m_resume = "petite histoire sympathique";
+livre::livre(int annee, int pages, std::string collection, std::string resume) : media()
+{
+	m_annee = annee;
+	m_pages = pages;
+	m_collection = collection;
+	m_resume =  resume;
 }
 
 livre::~livre()
@@ -30,8 +29,8 @@ livre::~livre()
 void livre::affiche() // affichage a mettre en forme
 {
 	media::affiche();
-	std::cout << m_annee << std::endl;
-	std::cout << m_pages << std::endl;
-	std::cout << m_collection << std::endl;
-	std::cout << m_resume << std::endl;
+	cout << m_annee << endl;
+	cout << m_pages << endl;
+	cout << m_collection << endl;
+	cout << m_resume << endl;
 }

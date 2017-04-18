@@ -1,3 +1,4 @@
+/* media.hpp */
 #ifndef DEF_MEDIA
 #define DEF_MEDIA
 
@@ -29,11 +30,9 @@ public:
 	media();
 	~media();
 
-	virtual void affiche();
+	virtual void affiche()=0;
 	int get_id();
 	void set_id(int id);
-
-	
 };
 
 #endif

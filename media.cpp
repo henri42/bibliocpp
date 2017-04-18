@@ -1,10 +1,17 @@
 /* media.cpp */
 #include "media.hpp"
+#include <string>
 #include <iostream>
+
+using namespace std;
 
 media::media()
 {
-	m_nom = "wars";
+	m_auteur = "Telmo";
+	m_nom = "Wars";
+	m_type = 0;
+ 	m_dispo = 0;
+	m_id = 0;
 }
 
 media::~media()
@@ -14,11 +21,11 @@ media::~media()
 
 void media::affiche()
 {
-	std::cout << m_auteur << std::endl;
-	std::cout << m_nom << std::endl;
-	std::cout << m_type << std::endl;
-	std::cout << m_dispo << std::endl;
-	std::cout << m_id << std::endl;
+	cout << m_auteur << endl;
+	cout << m_nom << endl;
+	cout << m_type << endl;
+	cout << m_dispo << endl;
+	cout << m_id << endl;
 }
 
 int media::get_id()
