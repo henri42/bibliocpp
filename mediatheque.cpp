@@ -8,7 +8,7 @@ using namespace std;
 
 mediatheque::mediatheque()
 {
-	m_nb_media = 0;
+
 }
 
 mediatheque::~mediatheque()
@@ -20,8 +20,10 @@ void mediatheque::affiche() //Affiche les informations de toute la liste des mé
 {
 	for (int i=0; i<m_biblio.size(); i++)
 	{
-		cout << i;
-		m_biblio[i] -> media::affiche();
+		cout << "ID: " << i << endl;
+		m_biblio[i] -> affiche();
+		if (i < m_biblio.size() - 1)
+			cout << endl;
 	}
 }
 

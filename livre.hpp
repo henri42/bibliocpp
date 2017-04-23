@@ -19,7 +19,7 @@ protected :
 public :
 	// constructeurs et destructeurs
 	livre();
-	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo, int id);
+	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo);
 	~livre();
 
 	void affiche(); //pas besoin de preciser virtual car le virtual s'herite

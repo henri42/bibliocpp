@@ -24,16 +24,13 @@ protected:
 	std::string m_nom;
 	int m_type;
 	int m_dispo;
-	int m_id;
 
 public:
 	media();
-	media(std::string auteur, std::string nom, int type, int dispo, int id);
+	media(std::string auteur, std::string nom, int type, int dispo);
 	~media();
 
 	virtual void affiche();
-	int get_id();
-	void set_id(int id);
 };
 
 #endif
