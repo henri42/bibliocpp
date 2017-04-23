@@ -12,14 +12,7 @@ class mediatheque
 //Attributs
 private :
 	std::vector<media*> m_biblio;
-
-public :
 	int m_nb_media;				// nombre de media dans la mediatheque
-
-	int m_next_entry; 			// indice que prendra le prochain media ajoute
-
-	std::vector<media*> m_liste; //
-	std::vector<int> m_indices;	// indices que prendront les prochains medias ajoutes
 
 
 

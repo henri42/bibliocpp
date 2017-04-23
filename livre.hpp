@@ -22,7 +22,7 @@ public :
 	livre(int annee, int pages, std::string m_collection, std::string m_resume);
 	~livre();
 
-	virtual void affiche();
+	void affiche(); //pas besoin de preciser virtual car le virtual s'herite
 };
 
 #endif
