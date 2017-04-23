@@ -29,7 +29,6 @@ void mediatheque::suppr(int indice)
 
 	for (int i=indice; i<m_nb_media)
 		m_biblio[i]->set_id(i);
-	
 }
 
 
