@@ -1,34 +1,31 @@
-# Nom de l'executable
-TARGET=game
+#nom de l'executable
+NAMEPROG=bibliotheque 
 
+#parametres
 CXX=g++
-RM=rm -f
 CPPFLAGS=-std=c++11 -g
 LDFLAGS= -g
 LDLIBS=
 
-SRCS=main.cpp mediatheque.cpp media.cpp livre.cpp revue.cpp
-
-# Objets
+#sources et objets
+SRCS=main.cpp mediatheque.cpp media.cpp livre.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-$(TARGET): $(OBJS)
+all: $(NAMEPROG)
 
-# Injecte les dependences si presentes
--include *.d
+$(NAMEPROG): $(OBJS)
+	$(CXX) $(LDFLAGS) -o $(NAMEPROG) $^ $(LDLIBS)
+
+main.o: main.cpp mediatheque.hpp media.hpp livre.hpp
+
+mediatheque.o: mediatheque.cpp mediatheque.hpp
+
+media.o: media.cpp media.hpp
+
+livre.o: livre.cpp livre.hpp
 
 clean:
-	$(RM) $(TARGET) tool
+	rm -f $(OBJS)
 
 distclean: clean
-	$(RM) tool
-
-depends: $(OBJS:.o=.cpp)
-	$(CC) -MMD $(CFLAGS) $^
-clean-deps: clean
-	rm -f *.d
-
-
-
-
-
+	rm -f tool
