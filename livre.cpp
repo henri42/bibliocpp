@@ -13,8 +13,9 @@ livre::livre() //constructeur bateau
 	m_resume = "Coolos";
 }
 
-livre::livre(int annee, int pages, std::string collection, std::string resume) : media()
+livre::livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo, int id)
 {
+	media::media(auteur, nom, type, dispo, id);
 	m_annee = annee;
 	m_pages = pages;
 	m_collection = collection;

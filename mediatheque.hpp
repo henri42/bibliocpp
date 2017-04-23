@@ -11,14 +11,13 @@ class mediatheque
 {
 //Attributs
 private :
-	std::vector<media*> m_biblio;
+	std::vector<media*> m_biblio; //Liste des médias de la mediatheque
 
 public :
 	int m_nb_media;				// nombre de media dans la mediatheque
 
 	int m_next_entry; 			// indice que prendra le prochain media ajoute
 
-	std::vector<media*> m_liste; //
 	std::vector<int> m_indices;	// indices que prendront les prochains medias ajoutes
 
 
@@ -30,11 +29,11 @@ public :
 	~mediatheque();
 
 	//methodes
-	void ajout(media* const new_media);
+	void affiche();
 	void affiche(int indice);
 
-
-	// void suppr(media del_media);
+	void ajout(media* const new_media);
+	void suppr(int indice);
 
 	// void consulter(int id_cible);
 

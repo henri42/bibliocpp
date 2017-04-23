@@ -28,9 +28,10 @@ protected:
 
 public:
 	media();
+	media(std::string auteur, std::string nom, int type, int dispo, int id);
 	~media();
 
-	virtual void affiche()=0;
+	virtual void affiche();
 	int get_id();
 	void set_id(int id);
 };

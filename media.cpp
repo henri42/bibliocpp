@@ -7,11 +7,16 @@ using namespace std;
 
 media::media()
 {
-	m_auteur = "Telmo";
-	m_nom = "Wars";
-	m_type = 0;
- 	m_dispo = 0;
-	m_id = 0;
+	
+}
+
+media::media(std::string auteur, std::string nom, int type, int dispo, int id)
+{
+	m_auteur = auteur;
+	m_nom = nom;
+	m_type = type;
+ 	m_dispo = dispo;
+	m_id = id;
 }
 
 media::~media()

@@ -19,7 +19,7 @@ protected :
 public :
 	// constructeurs et destructeurs
 	livre();
-	livre(int annee, int pages, std::string m_collection, std::string m_resume);
+	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo, int id);
 	~livre();
 
 	virtual void affiche();

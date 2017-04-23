@@ -2,6 +2,7 @@
 #include "mediatheque.hpp"
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -16,14 +17,30 @@ mediatheque::~mediatheque()
 	
 }
 
+void mediatheque::affiche() //Affiche les informations de toute la liste des médias de la médiatheque
+{
+	for (int i=0; i<m_biblio.size(); i++)
+	{
+		cout << i;
+		m_biblio[i] -> media::affiche();
+	}
+}
+
+void mediatheque::affiche(int indice) //Affiche le média d'indice "indice" en détails
+{
+	m_biblio[indice] -> affiche();
+}
+
+
+
 void mediatheque::ajout(media* const new_media)
 {
 	m_biblio.push_back(new_media);
-	//new_media.set_id(m_next_entry);		// on donne son index au nouveau media
 	m_nb_media ++;
+	//new_media.set_id(m_next_entry);		// on donne son index au nouveau media
 	
-	// int new_id = m_indices.back(); // on recupere l'id que va prendre le media ajoute
-	// m_indices.pop_back(); 
+	//int new_id = m_biblio.end(); // on recupere l'id que va prendre le media ajoute
+	//m_biblio.pop_back(); 
 
 	// if (m_indices.size() == 0) // si il ne reste aucun indice dispo
 	// {
@@ -38,7 +55,7 @@ void mediatheque::ajout(media* const new_media)
 	// }
 }
 
-void mediatheque::affiche(int indice)
+void mediatheque::suppr(int indice)
 {
-	m_biblio[indice] -> affiche();
+	m_biblio.erase(m_biblio.begin() + indice);
 }
