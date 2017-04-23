@@ -27,7 +27,7 @@ public :
 	void affiche(int indice);
 
 
-	// void suppr(media del_media);
+	void suppr(media del_media);
 
 	// void consulter(int id_cible);
 
