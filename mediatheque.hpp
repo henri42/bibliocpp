@@ -30,9 +30,9 @@ public :
 
 	// void consulter(int id_cible);
 
-	// void reserver(int id_cible);
-	// void emprunter(int id_cible);
-	// void rendre(int id_cible);
+	// void reserver(int indice);
+	// void emprunter(int indice);
+	// void rendre(int indice);
 
 	// void rechercher(char* nom);
 };

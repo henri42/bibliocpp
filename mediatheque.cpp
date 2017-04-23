@@ -44,3 +44,6 @@ void mediatheque::suppr(int indice)
 {
 	m_biblio.erase(m_biblio.begin() + indice);
 }
+
+
+

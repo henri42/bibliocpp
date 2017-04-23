@@ -30,3 +30,13 @@ void media::affiche()
 	cout << m_type << endl;
 	cout << m_dispo << endl;
 }
+
+int media::get_dispo()
+{
+	return m_dispo;
+}
+
+int media::set_dispo(int dispo)
+{
+	m_dispo = dispo;
+}
