@@ -36,7 +36,7 @@ int media::get_dispo()
 	return m_dispo;
 }
 
-int media::set_dispo(int dispo)
+void media::set_dispo(int dispo)
 {
 	m_dispo = dispo;
 }

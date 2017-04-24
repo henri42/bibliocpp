@@ -7,10 +7,8 @@ using namespace std;
 
 livre::livre() //constructeur bateau
 {
-	m_annee = 2017;
-	m_pages = 100;
-	m_collection = "Hachette";
-	m_resume = "Coolos";
+	cout << "Quel est l'auteur du livre ?" << endl;
+	cin >> m_auteur;
 }
 
 livre::livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo)

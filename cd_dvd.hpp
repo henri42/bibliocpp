@@ -1,4 +1,7 @@
 /* cd_dvd.hpp */
+#ifndef DEF_CDDVD
+#define DEF_CDDVD
+
 #include <string>
 
 class cd_dvd : public vhs
@@ -15,3 +18,5 @@ class cd_dvd : public vhs
 		~cd_dvd();
 
 };
+
+#endif

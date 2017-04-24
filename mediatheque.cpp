@@ -45,5 +45,20 @@ void mediatheque::suppr(int indice)
 	m_biblio.erase(m_biblio.begin() + indice);
 }
 
+int mediatheque::emprunter(int indice)
+{
+	int dispo = m_biblio[indice]->get_dispo();
+	if (dispo == DISPONIBLE)
+	{
+		m_biblio[indice]->set_dispo(EMPRUNTE);
+		return 1;
+	}
+	else
+		return 0;
+}
 
+void mediatheque::rendre(int indice)
+{
+	m_biblio[indice]->set_dispo(DISPONIBLE);
+}
 

@@ -13,7 +13,6 @@ class mediatheque
 private :
 	std::vector<media*> m_biblio; //Liste des médias de la mediatheque
 
-
 public :
 	// constructeurs et destructeurs
 	mediatheque();
@@ -24,15 +23,14 @@ public :
 	void affiche();
 	void affiche(int indice);
 
-
 	void ajout(media* const new_media);
 	void suppr(int indice);
 
 	// void consulter(int id_cible);
 
-	// void reserver(int indice);
-	// void emprunter(int indice);
-	// void rendre(int indice);
+	//void reserver(int indice);
+	int emprunter(int indice);
+	void rendre(int indice);
 
 	// void rechercher(char* nom);
 };

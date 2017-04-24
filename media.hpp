@@ -32,7 +32,7 @@ public:
 
 	virtual void affiche();
 	int get_dispo();
-	int set_dispo(int dispo);
+	void set_dispo(int dispo);
 
 };
 
