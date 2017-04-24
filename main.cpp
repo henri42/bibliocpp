@@ -10,11 +10,12 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	mediatheque* test = new mediatheque();
-	livre* book1 = new livre(1995, 1000, "House", "Back once again for the ready go master", "Telmo", "Wars", LIVRE, EMPRUNTE);
-	livre* book2 = new livre(19, 50, "AZERTYUI", "OK", "Victor Hugo", "Paris", LIVRE, DISPONIBLE);
+	livre* book1 = new livre(1995, 1000, "House", "Back once again for the ready go master", "Telmo", "Wars", EMPRUNTE);
+	livre* book2 = new livre(19, 50, "AZERTYUI", "OK", "Victor Hugo", "Paris", DISPONIBLE);
+	livre* book3 = new livre();
 
 	test -> ajout(book1);
-	test -> ajout(book2);
+	test -> ajout(book3);
 
 	test -> affiche(0);
 	cout << endl;

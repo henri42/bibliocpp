@@ -33,6 +33,9 @@ public :
 	void rendre(int indice);
 
 	// void rechercher(char* nom);
+
+	int load_from_file(char* filename);
+
 };
 
 #endif

@@ -19,7 +19,9 @@ protected :
 public :
 	// constructeurs et destructeurs
 	livre();
-	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo);
+	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
+		//constructeur pour chargement depuis fichier texte
+	livre(std::string annee, std::string pages, std::string collection, std::string resume, std::string auteur, std::string nom);
 	~livre();
 
 	void affiche(); //pas besoin de preciser virtual car le virtual s'herite

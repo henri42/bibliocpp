@@ -5,9 +5,15 @@
 
 using namespace std;
 
-media::media()
+media::media(int type)
 {
-	
+	m_type = type;
+	m_dispo = DISPONIBLE;
+
+	cout << "Quel est l'auteur ?" << endl;
+	getline(cin, m_auteur);
+	cout << "Quel est le titre ?" << endl;
+	getline(cin, m_nom);
 }
 
 media::media(std::string auteur, std::string nom, int type, int dispo)

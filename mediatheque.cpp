@@ -1,6 +1,7 @@
 /* mediatheque.cpp */
 #include "mediatheque.hpp"
 #include <string>
+#include <fstream>
 #include <iostream>
 #include <vector>
 
@@ -14,6 +15,49 @@ mediatheque::mediatheque()
 mediatheque::~mediatheque()
 {
 	
+}
+
+bool load_from_file(char* filename)
+{
+	string buffer;
+	vector<string> donnees;
+	int i;
+	int type;
+
+	ifstream infile;
+
+	infile.open(filename);
+	if (infile.is_open())
+	{
+		while (!infile.eof())
+		{
+			getline(infile, buffer);
+			if (buffer.compare("###")==0)// si on est au debut d'un media
+			{
+				//creation du media precedent grace a donnees
+				type = stoi(donnees[0]);
+				switch(type)
+				{
+					case LIVRE :
+						break;
+				}
+
+				i=0;
+				donnees.clear(); //puis effacement de donnees
+			}
+			else
+			{
+				donnees[i]=buffer;
+				i++;
+			}
+
+		}	 
+		infile.close();
+		return true;
+	}
+	//remplir m_biblio en utilisant les constructeurs et ajout()
+	else
+		return false;
 }
 
 void mediatheque::affiche() //Affiche les informations de toute la liste des médias de la médiatheque
@@ -31,7 +75,6 @@ void mediatheque::affiche(int indice) //Affiche le média d'indice "indice" en d
 {
 	m_biblio[indice] -> affiche();
 }
-
 
 
 void mediatheque::ajout(media* const new_media)
