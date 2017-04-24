@@ -9,15 +9,14 @@ livre::livre() //constructeur bateau
 {
 	cout << "Quel est l'auteur du livre ?" << endl;
 	cin >> m_auteur;
+
+	cout << "Quel est l'auteur du livre ?" << endl;
+	cin >> m_auteur;
 }
 
-livre::livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo)
+livre::livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int type, int dispo) : 	media(auteur, nom, type, dispo)
 {
-	//media::media(auteur, nom, type, dispo);
-	m_auteur = auteur;
-	m_nom = nom;
-	m_type = type;
- 	m_dispo = dispo;
+
  	
 	m_annee = annee;
 	m_pages = pages;
