@@ -1,7 +1,10 @@
 /* VHS.hpp */
+#ifndef DEF_VHS
+#define DEF_VHS
+
 #include <string>
 
-class VHS
+class VHS : public media 
 {
 	//Attributs
 	private :
@@ -18,3 +21,5 @@ class VHS
 		~VHS();
 
 };
+
+#endif

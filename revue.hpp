@@ -1,6 +1,6 @@
 /* revue.hpp */
-#ifndef DEF_revue
-#define DEF_revue
+#ifndef DEF_REVUE
+#define DEF_REVUE
 
 #include "livre.hpp"
 #include <string>
