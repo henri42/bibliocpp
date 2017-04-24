@@ -4,6 +4,7 @@
 #include "mediatheque.hpp"
 #include "media.hpp"
 #include "livre.hpp"
+#include "VHS.hpp"
 
 using namespace std;
 

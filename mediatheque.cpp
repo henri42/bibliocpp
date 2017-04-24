@@ -82,6 +82,16 @@ void mediatheque::ajout(int type, std::vector<std::string> donnees)
 		case LIVRE :
 			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
 			break;
+		case REVUE :
+			break;
+		case VHS :
+			m_biblio.emplace_back(new vhs(donnees[1], donnees[2], donnees[3], donnees[4]));
+			break;
+		//case CD || DVD :
+			//break;
+		case RESSOURCE :
+			break;
+
 	}
 }
 

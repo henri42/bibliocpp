@@ -7,6 +7,7 @@
 #include <vector>
 #include "media.hpp"
 #include "livre.hpp"
+#include "VHS.hpp"
 
 class mediatheque
 {
