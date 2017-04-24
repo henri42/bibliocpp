@@ -17,7 +17,7 @@ mediatheque::~mediatheque()
 	
 }
 
-bool load_from_file(char* filename)
+bool mediatheque::load_from_file(string filename)
 {
 	string buffer;
 	vector<string> donnees;
@@ -26,29 +26,22 @@ bool load_from_file(char* filename)
 
 	ifstream infile;
 
-	infile.open(filename);
+	infile.open(filename.c_str());
 	if (infile.is_open())
 	{
 		while (!infile.eof())
 		{
 			getline(infile, buffer);
-			if (buffer.compare("###")==0)// si on est au debut d'un media
+			if (buffer.compare("###")==0)// si on est a la fin d'un media
 			{
 				//creation du media precedent grace a donnees
 				type = stoi(donnees[0]);
-				switch(type)
-				{
-					case LIVRE :
-						break;
-				}
-
-				i=0;
+				ajout(type, donnees);
 				donnees.clear(); //puis effacement de donnees
 			}
 			else
 			{
-				donnees[i]=buffer;
-				i++;
+				donnees.push_back(buffer);
 			}
 
 		}	 
@@ -80,6 +73,16 @@ void mediatheque::affiche(int indice) //Affiche le média d'indice "indice" en d
 void mediatheque::ajout(media* const new_media)
 {
 	m_biblio.push_back(new_media); //ajout
+}
+
+void mediatheque::ajout(int type, std::vector<std::string> donnees)
+{
+	switch(type)
+	{
+		case LIVRE :
+			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
+			break;
+	}
 }
 
 

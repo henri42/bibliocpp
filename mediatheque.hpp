@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "media.hpp"
+#include "livre.hpp"
 
 class mediatheque
 {
@@ -24,6 +25,7 @@ public :
 	void affiche(int indice);
 
 	void ajout(media* const new_media);
+	void ajout(int type, std::vector<std::string> data);
 	void suppr(int indice);
 
 	// void consulter(int id_cible);
@@ -34,7 +36,7 @@ public :
 
 	// void rechercher(char* nom);
 
-	int load_from_file(char* filename);
+	bool load_from_file(std::string filename);
 
 };
 
