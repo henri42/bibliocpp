@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
 	media* book2 = new livre(19, 50, "AZERTYUI", "OK", "Victor Hugo", "Paris", DISPONIBLE);
 	//media* book3 = new livre();
 
-	test->load_from_file("test_bib.txt");
+	test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
 
 	// test -> affiche(0);
 	// cout << endl;
