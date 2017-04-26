@@ -19,8 +19,7 @@ int main(int argc, char const *argv[])
 	media* revue1 = new revue(titre.size(), "Boris", titre, 2017, 100, "Test", "Deep Inside", "Telmo", "Wars", DISPONIBLE);
 	//media* book3 = new livre();
 
-	test->load_from_file("test_bib.txt");
-	test -> ajout(revue1);
+	test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
 	// test -> affiche(0);
 	// cout << endl;
 	// test -> affiche(1);

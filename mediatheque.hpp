@@ -10,6 +10,7 @@
 #include "VHS.hpp"
 #include "cd_dvd.hpp"
 #include "revue.hpp"
+#include "ressource_num.hpp"
 
 class mediatheque
 {

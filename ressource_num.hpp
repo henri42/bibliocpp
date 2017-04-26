@@ -1,6 +1,6 @@
 /* ressource_num.hpp */
-#ifndef DEF_REVUE
-#define DEF_REVUE
+#ifndef DEF_RESSOURCE
+#define DEF_RESSOURCE
 
 #include <string>
 #include <iostream>
@@ -23,6 +23,8 @@ class ressource_num : public media
         ressource_num(int taille, std::string format, std::string chemin, std::string auteur, std::string nom, int dispo);
         ressource_num(std::string taille, std:: string format, std::string chemin, std::string auteur, std::string nom);
 		~ressource_num();
+
+        void affiche();
 
 };
 
