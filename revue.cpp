@@ -9,7 +9,6 @@ int i = 1;
 revue::revue()
 {
 	m_article = 0;
-	m_id_article = 0;
 }
 
 revue::~revue()
@@ -19,18 +18,31 @@ revue::~revue()
 
 void revue::affiche_articles(int index)
 {
-	if (id == -1)
+	if (index == -1)
 	{
-		for (ii = article.begin(); ii != article.end(); ii++)
+		for (ii = m_liste_article.begin(); ii != m_liste_article.end(); ii++)
 		{
 				cout << i << ". " << *ii << endl;
 				i++;
 		}
+		i = 0;
 	}
 
 	else
 	{
-		cout << article[index] << endl;
+		cout << m_liste_article[index] << endl;
 	}
 
+}
+
+void revue::affiche() // affichage a mettre en forme
+{
+	livre::affiche();
+	cout << "Le nombre d'articles de cette revue est :" << m_article << endl;
+	cout << "La liste de tous les articles de la revue est la suivante:" << endl;
+	affiche_articles(-1);
+	cout << endl << endl;
+	cout << "Entrez l'index d'un article si vous voulez un résumé de celui-ci" << endl;
+	affiche_articles(cin);
+	cout << endl;
 }
