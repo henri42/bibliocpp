@@ -11,7 +11,7 @@ class revue : public livre
 	//Attributs
 	private :
 
-		int m_article;					//Nombres d'articles contenus dans la revue
+		int m_nb_articles;					//Nombres d'articles contenus dans la revue
 		int m_id_article;
 
 		std::string m_editeur;
@@ -26,6 +26,7 @@ class revue : public livre
 
 		// constructeurs et destructeurs
 		revue();
+		revue(int nb_articles, std::string editeur, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
 		~revue();
 
 };

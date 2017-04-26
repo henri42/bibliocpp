@@ -8,7 +8,7 @@ LDFLAGS= -g
 LDLIBS=
 
 #sources et objets
-SRCS=main.cpp mediatheque.cpp media.cpp livre.cpp vhs.cpp revue.cpp
+SRCS=main.cpp mediatheque.cpp media.cpp livre.cpp vhs.cpp revue.cpp cd_dvd.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 
 all: $(NAMEPROG)
@@ -27,6 +27,8 @@ livre.o: livre.cpp livre.hpp
 VHS.o: vhs.cpp vhs.hpp
 
 revue.o: revue.cpp revue.hpp
+
+cd_dvd.o: cd_dvd.cpp cd_dvd.hpp
 
 clean:
 	rm -f $(OBJS)
