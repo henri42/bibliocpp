@@ -16,7 +16,7 @@ class revue : public livre
 
 		std::string m_editeur;
 
-		std::vector<revue*> m_liste_article;	//Collection d'articles contenus dans la revue
+		std::vector<std::string> m_liste_articles;	//Collection d'articles contenus dans la revue
 	
 	//Méthodes
 	public :
@@ -26,7 +26,7 @@ class revue : public livre
 
 		// constructeurs et destructeurs
 		revue();
-		revue(int nb_articles, std::string editeur, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
+		revue(int nb_articles, std::string editeur, std::vector<std::string> liste_articles, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
 		~revue();
 
 };

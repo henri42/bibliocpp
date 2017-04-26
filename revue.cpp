@@ -9,10 +9,11 @@ revue::revue()
 	m_nb_articles = 0;
 }
 
-revue::revue(int nb_articles, std::string editeur, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo) : livre(annee, pages, collection, resume, auteur, nom, dispo)
+revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int annee, int pages, string collection, string resume, string auteur, string nom, int dispo) : livre(annee, pages, collection, resume, auteur, nom, dispo)
 {
 	m_nb_articles = nb_articles;
 	m_editeur = editeur;
+	m_liste_articles = liste_articles;
 }
 
 revue::~revue()
@@ -22,12 +23,12 @@ revue::~revue()
 
 void revue::affiche_articles(int index)
 {
-    std::vector<revue*>::const_iterator ii;
+    std::vector<string>::const_iterator ii;
     int i = 1;
 
 	if (index == -1)
 	{
-		for (ii = m_liste_article.begin(); ii != m_liste_article.end(); ii++)
+		for (ii = m_liste_articles.begin(); ii != m_liste_articles.end(); ii++)
 		{
 				cout << i << ". " << *ii << endl;
 				i++;
@@ -37,7 +38,7 @@ void revue::affiche_articles(int index)
 
 	else
 	{
-		cout << m_liste_article[index] << endl;
+		cout << m_liste_articles[index-1] << endl;
 	}
 
 }
