@@ -5,6 +5,11 @@
 
 using namespace std;
 
+media::media()
+{
+	//vide;
+}
+
 media::media(int type)
 {
 	m_type = type;
