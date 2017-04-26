@@ -17,7 +17,7 @@ class cd_dvd : public vhs
 		// constructeurs et destructeurs
 		cd_dvd(int type);
         cd_dvd(int piste, int duree, std::string maison_production, std::string auteur, std::string nom, int dispo, int type);
-        cd_dvd::cd_dvd(std::string piste, std::string duree, std::string maison_production, std::string auteur, std::string nom, std::string type);
+        cd_dvd(std::string piste, std::string duree, std::string maison_production, std::string auteur, std::string nom, int type);
         ~cd_dvd();
 
 		void affiche();

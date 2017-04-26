@@ -8,6 +8,7 @@
 #include "media.hpp"
 #include "livre.hpp"
 #include "VHS.hpp"
+#include "cd_dvd.hpp"
 
 class mediatheque
 {

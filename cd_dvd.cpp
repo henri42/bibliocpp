@@ -2,7 +2,6 @@
 
 #include "cd_dvd.hpp"
 #include <string>
-#include <iostream>
 
 using namespace std;
 
@@ -19,10 +18,10 @@ cd_dvd::cd_dvd(int piste, int duree, string maison_production, string auteur, st
     m_type = type;
 }
 
-cd_dvd::cd_dvd(string piste, string duree, string maison_production, string auteur, string nom, string type) : vhs(duree, maison_production, auteur, nom)
+cd_dvd::cd_dvd(string piste, string duree, string maison_production, string auteur, string nom, int type) : vhs(duree, maison_production, auteur, nom)
 {
     m_piste = stoi(piste);
-    m_type = stoi(type);
+    m_type = type;
 }
 
 cd_dvd::~cd_dvd()
