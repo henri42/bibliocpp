@@ -3,8 +3,6 @@
 #include <iostream>
 using namespace std;
 
-std::vector<revue*>::const_iterator ii;
-int i = 1;
 
 revue::revue()
 {
@@ -18,6 +16,9 @@ revue::~revue()
 
 void revue::affiche_articles(int index)
 {
+    std::vector<revue*>::const_iterator ii;
+    int i = 1;
+
 	if (index == -1)
 	{
 		for (ii = m_liste_article.begin(); ii != m_liste_article.end(); ii++)
