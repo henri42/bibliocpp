@@ -12,6 +12,7 @@ class revue : public livre
 	private :
 
 		int m_article;					//Nombres d'articles contenus dans la revue
+		int m_id_article;
 
 		std::string m_editeur;
 
