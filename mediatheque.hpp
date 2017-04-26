@@ -8,6 +8,7 @@
 #include "media.hpp"
 #include "livre.hpp"
 #include "VHS.hpp"
+#include "revue.hpp"
 
 class mediatheque
 {
@@ -18,7 +19,7 @@ private :
 public :
 	// constructeurs et destructeurs
 	mediatheque();
-	// mediatheque(char* filename);//constructeurs d'une bilbliotèque a partir d'un fichier
+	//mediatheque(char* filename);//constructeurs d'une bilbliotèque a partir d'un fichier
 	~mediatheque();
 
 	//methodes

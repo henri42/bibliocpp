@@ -43,6 +43,7 @@ void revue::affiche() // affichage a mettre en forme
 	affiche_articles(-1);
 	cout << endl << endl;
 	cout << "Entrez l'index d'un article si vous voulez un résumé de celui-ci" << endl;
-	affiche_articles(cin);
+	cin >> m_id_article;
+	affiche_articles(m_id_article);
 	cout << endl;
 }
