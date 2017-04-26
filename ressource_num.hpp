@@ -1,15 +1,18 @@
 /* ressource_num.hpp */
-#include <string>
+#ifndef DEF_REVUE
+#define DEF_REVUE
 
-class ressource_num
+#include <string>
+#include <iostream>
+#include "media.hpp"
+
+class ressource_num : public media
 {
 	//Attributs
 	private :
 
-		int m_taille;					//Durée du DVD en minutes
-
-		std::string m_type;
-		std::string m_auteur;
+		int m_taille;					//Taille en octets
+		std::string m_format;			//format (pdf, txt, ...)
 		std::string m_chemin;			//Chemin d'accès de type URL
 
 	
@@ -17,6 +20,10 @@ class ressource_num
 	public :
 		// constructeurs et destructeurs
 		ressource_num();
+        ressource_num(int taille, std::string format, std::string chemin, std::string auteur, std::string nom, int dispo);
+        ressource_num(std::string taille, std:: string format, std::string chemin, std::string auteur, std::string nom);
 		~ressource_num();
 
-}
+};
+
+#endif
