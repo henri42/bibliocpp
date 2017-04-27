@@ -1,0 +1,7 @@
+/* user.cpp */
+
+void bye()
+{
+
+}
+
