@@ -55,3 +55,11 @@ void revue::affiche() // affichage a mettre en forme
 	affiche_articles(m_id_article);
 	cout << endl;
 }
+
+void revue::save_media(ofstream* file)
+{
+	*file << RESSOURCE << endl;
+	*file << m_nb_articles << endl;
+	*file << m_editeur << endl;
+	media::save_media(file);
+}

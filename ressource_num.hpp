@@ -25,6 +25,7 @@ class ressource_num : public media
 		~ressource_num();
 
         void affiche();
+		void save_media(std::ofstream* file);
 
 };
 

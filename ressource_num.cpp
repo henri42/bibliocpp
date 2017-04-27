@@ -41,3 +41,12 @@ void ressource_num::affiche() // affichage a mettre en forme
     cout << m_format << endl;
     cout << m_chemin << endl;
 }
+
+void ressource_num::save_media(ofstream* file)
+{
+    *file << RESSOURCE << endl;
+    *file << m_taille << endl;
+    *file << m_format << endl;
+    *file << m_chemin << endl;
+    media::save_media(file);
+}

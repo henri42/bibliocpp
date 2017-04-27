@@ -35,3 +35,9 @@ void cd_dvd::affiche() // affichage a mettre en forme
     cout << m_piste << endl;
 }
 
+void cd_dvd::save_media(ofstream* file)
+{
+    *file << m_type << endl;
+    *file << m_piste << endl;
+    media::save_media(file);
+}
