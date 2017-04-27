@@ -21,6 +21,7 @@ bool mediatheque::load_from_file(string filename)
 {
 	string buffer;
 	vector<string> donnees;
+	vector<string> articles;
 	int i;
 	int type;
 
@@ -31,17 +32,32 @@ bool mediatheque::load_from_file(string filename)
 	{
 		while (!infile.eof())
 		{
+
 			getline(infile, buffer);
 			if (buffer.compare("###")==0)// si on est a la fin d'un media
 			{
 				//creation du media precedent grace a donnees
 				type = stoi(donnees[0]);
-				ajout(type, donnees);
+				if (type != REVUE)
+					articles.push_back("0");
+				ajout(type, donnees, articles);
+				articles.clear(); //effacement du vector articles
 				donnees.clear(); //puis effacement de donnees
 			}
 			else
 			{
-				donnees.push_back(buffer);
+				if (buffer.compare("---")==0) //début des articles
+				{
+					do
+					{
+						getline(infile, buffer);
+						if (!(buffer.compare("---")==0))
+							articles.push_back(buffer); //on ajoute le titre des articles et leurs resumés dans le vector articles
+					}
+					while (!(buffer.compare("---")==0)); //jusqu'à la fin de la liste d'articles
+				}
+				if (!(buffer.compare("---")==0))
+					donnees.push_back(buffer);
 			}
 
 		}	 
@@ -75,7 +91,7 @@ void mediatheque::ajout(media* const new_media)
 	m_biblio.push_back(new_media); //ajout
 }
 
-void mediatheque::ajout(int type, std::vector<std::string> donnees)
+void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles)
 {
 	switch(type)
 	{
@@ -83,6 +99,7 @@ void mediatheque::ajout(int type, std::vector<std::string> donnees)
 			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
 			break;
 		case REVUE :
+			m_biblio.emplace_back(new revue(articles.size()/2, donnees[1], articles, stoi(donnees[2]), stoi(donnees[3]), donnees[4], donnees[5], donnees[6], donnees[7], stoi(donnees[8])));
 			break;
 		case VHS :
 			m_biblio.emplace_back(new vhs(donnees[1], donnees[2], donnees[3], donnees[4]));

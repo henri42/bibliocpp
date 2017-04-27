@@ -28,7 +28,7 @@ void revue::affiche_articles(int index)
 
 	if (index == -1)
 	{
-		for (ii = m_liste_articles.begin(); ii != m_liste_articles.end(); ii++)
+		for (ii = m_liste_articles.begin(); ii != m_liste_articles.end(); ii+2)
 		{
 				cout << i << ". " << *ii << endl;
 				i++;
@@ -38,7 +38,7 @@ void revue::affiche_articles(int index)
 
 	else
 	{
-		cout << m_liste_articles[index-1] << endl;
+		cout << m_liste_articles[index] << endl;
 	}
 
 }

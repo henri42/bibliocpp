@@ -20,3 +20,20 @@ Disney
 Speilberg
 ET
 ###
+1
+Editeur de la revue
+1996
+234
+Michel Lafon
+Petite histoire de ratata
+Serge Lama
+Les rats sont de sortie
+---
+Article 1
+Le résumé de l'article 1
+Article 2
+Le résumé de l'article 2
+Article 3
+Le résumé de l'article 3
+---
+###

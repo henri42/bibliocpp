@@ -29,7 +29,7 @@ public :
 	void affiche(int indice);
 
 	void ajout(media* const new_media);
-	void ajout(int type, std::vector<std::string> data);
+	void ajout(int type, std::vector<std::string> data, std::vector<std::string> articles);
 	void suppr(int indice);
 
 	// void consulter(int id_cible);
