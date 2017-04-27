@@ -25,6 +25,7 @@ public :
 	~livre();
 
 	void affiche(); //pas besoin de preciser virtual car le virtual s'herite
+    void save_media(std::ofstream* file);
 };
 
 #endif

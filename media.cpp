@@ -51,3 +51,10 @@ void media::set_dispo(int dispo)
 {
 	m_dispo = dispo;
 }
+
+void media::save_media(ofstream* file)
+{
+    *file << m_auteur << endl;
+    *file << m_nom << endl;
+    *file << "###" << endl;
+}

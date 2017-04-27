@@ -41,6 +41,7 @@ public :
 	// void rechercher(char* nom);
 
 	bool load_from_file(std::string filename);
+    bool save_to_file(std::string filename);
 
 };
 

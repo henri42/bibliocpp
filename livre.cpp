@@ -46,3 +46,13 @@ void livre::affiche() // affichage a mettre en forme
 	cout << m_collection << endl;
 	cout << m_resume << endl;
 }
+
+void livre::save_media(ofstream* file)
+{
+    *file << LIVRE << endl;
+	*file << m_annee << endl;
+	*file << m_pages << endl;
+	*file << m_collection << endl;
+	*file << m_resume << endl;
+    media::save_media(file);
+}

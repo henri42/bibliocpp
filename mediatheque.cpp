@@ -53,6 +53,24 @@ bool mediatheque::load_from_file(string filename)
 		return false;
 }
 
+bool mediatheque::save_to_file(string filename)
+{
+    ofstream outfile(filename);
+
+    if(outfile.is_open())
+    {
+        for (int i=0; i<m_biblio.size(); i++)
+        {
+            m_biblio[i]->save_media(&outfile);
+        }
+        outfile.close();
+        return true;
+    }
+    else
+        return false;
+}
+
+
 void mediatheque::affiche() //Affiche les informations de toute la liste des médias de la médiatheque
 {
 	for (int i=0; i<m_biblio.size(); i++)
@@ -75,7 +93,7 @@ void mediatheque::ajout(media* const new_media)
 	m_biblio.push_back(new_media); //ajout
 }
 
-void mediatheque::ajout(int type, std::vector<std::string> donnees)
+void mediatheque::ajout(int type, vector<string> donnees)
 {
 	switch(type)
 	{
