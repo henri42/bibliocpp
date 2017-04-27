@@ -22,7 +22,7 @@ class vhs : public media
 		~vhs();
 
 		void affiche();
-
+		void save_media(std::ofstream* file);
 };
 
 #endif

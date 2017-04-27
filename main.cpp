@@ -3,10 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "mediatheque.hpp"
-#include "media.hpp"
-#include "livre.hpp"
-#include "VHS.hpp"
-#include "revue.hpp"
+#include "user.hpp"
 
 using namespace std;
 
@@ -19,12 +16,23 @@ int main(int argc, char const *argv[])
 	//media* revue1 = new revue(titre.size(), "Boris", titre, 2017, 100, "Test", "Deep Inside", "Telmo", "Wars", DISPONIBLE);
 	//media* book3 = new livre();
 
+<<<<<<< HEAD
 	test->load_from_file("test_bib.txt");
+=======
+    //test -> ajout(book1);
+    //test -> ajout(book2);
+	user* henri = new user(test);
+	henri->lecture_commande();
+
+
+	//test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
+>>>>>>> 311849d5a8b51de2af30bf9f8241c4b40f28ec31
 	// test -> affiche(0);
 	// cout << endl;
 	// test -> affiche(1);
 	// cout << endl;
-	test -> affiche();
+	//test -> affiche();
+    //test -> save_to_file("saving.txt");
 	// cout << endl;
 	// test -> suppr(0);
 	// test -> affiche();

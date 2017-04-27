@@ -17,6 +17,12 @@ mediatheque::~mediatheque()
 	
 }
 
+int mediatheque::taille()
+{
+	return m_biblio.size();
+}
+
+
 bool mediatheque::load_from_file(string filename)
 {
 	string buffer;
@@ -28,6 +34,7 @@ bool mediatheque::load_from_file(string filename)
 	ifstream infile;
 
 	infile.open(filename.c_str());
+	m_biblio.clear();
 	if (infile.is_open())
 	{
 		while (!infile.eof())
@@ -64,10 +71,27 @@ bool mediatheque::load_from_file(string filename)
 		infile.close();
 		return true;
 	}
-	//remplir m_biblio en utilisant les constructeurs et ajout()
 	else
 		return false;
 }
+
+bool mediatheque::save_to_file(string filename)
+{
+    ofstream outfile(filename);
+
+    if(outfile.is_open())
+    {
+        for (int i=0; i<m_biblio.size(); i++)
+        {
+            m_biblio[i]->save_media(&outfile);
+        }
+        outfile.close();
+        return true;
+    }
+    else
+        return false;
+}
+
 
 void mediatheque::affiche() //Affiche les informations de toute la liste des médias de la médiatheque
 {
@@ -91,7 +115,11 @@ void mediatheque::ajout(media* const new_media)
 	m_biblio.push_back(new_media); //ajout
 }
 
+<<<<<<< HEAD
 void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles)
+=======
+void mediatheque::ajout(int type, vector<string> donnees)
+>>>>>>> 311849d5a8b51de2af30bf9f8241c4b40f28ec31
 {
 	switch(type)
 	{
@@ -113,7 +141,30 @@ void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<
 			break;
 		default:
 			break;
+	}
+}
 
+void mediatheque::ajout(int type)
+{
+	switch(type)
+	{
+		case LIVRE :
+			m_biblio.emplace_back(new livre());
+			break;
+		case REVUE :
+			break;
+		case VHS :
+			m_biblio.emplace_back(new vhs());
+			break;
+		case CD :
+		case DVD :
+			m_biblio.emplace_back(new cd_dvd(type));
+			break;
+		case RESSOURCE :
+			m_biblio.emplace_back(new ressource_num());
+			break;
+		default:
+			break;
 	}
 }
 
@@ -140,3 +191,7 @@ void mediatheque::rendre(int indice)
 	m_biblio[indice]->set_dispo(DISPONIBLE);
 }
 
+void mediatheque::clear()
+{
+	m_biblio.clear();
+}

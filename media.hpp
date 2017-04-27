@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #define LIVRE		0
 #define REVUE		1
@@ -34,6 +35,8 @@ public:
 	virtual void affiche();
 	int get_dispo();
 	void set_dispo(int dispo);
+
+	virtual void save_media(std::ofstream* file);
 };
 
 #endif

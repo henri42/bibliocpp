@@ -21,7 +21,7 @@ class cd_dvd : public vhs
         ~cd_dvd();
 
 		void affiche();
-
+		void save_media(std::ofstream* file);
 };
 
 #endif

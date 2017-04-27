@@ -31,6 +31,14 @@ vhs::~vhs()
 void vhs::affiche()
 {
 	media::affiche();
-	cout << m_maison_production << endl;
-	cout << m_duree << endl;
+	cout << "Maison de production: " << m_maison_production << endl;
+	cout << "Durée: " << m_duree << " minutes" << endl;
+}
+
+void vhs::save_media(ofstream* file)
+{
+	*file << VHS << endl;
+	*file << m_maison_production << endl;
+	*file << m_duree << endl;
+	media::save_media(file);
 }

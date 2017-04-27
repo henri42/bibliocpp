@@ -28,6 +28,7 @@ class revue : public livre
 		revue();
 		revue(int nb_articles, std::string editeur, std::vector<std::string> liste_articles, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
 		~revue();
+        void save_media(std::ofstream* file);
 
 };
 
