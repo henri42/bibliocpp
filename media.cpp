@@ -4,6 +4,8 @@
 #include <iostream>
 
 using namespace std;
+string types[6] = {"Livre", "Revue", "VHS", "CD", "DVD", "Ressource numérique"};
+string dispos[3] = {"Emprunté", "Disponible", "Réservé"};
 
 media::media()
 {
@@ -36,10 +38,10 @@ media::~media()
 
 void media::affiche()
 {
-	cout << m_auteur << endl;
-	cout << m_nom << endl;
-	cout << m_type << endl;
-	cout << m_dispo << endl;
+	cout << "Auteur: " << m_auteur << endl;
+	cout << "Titre: " << m_nom << endl;
+	cout << types[m_type] << endl;
+	cout << dispos[m_dispo] << endl;
 }
 
 int media::get_dispo()

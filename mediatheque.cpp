@@ -27,6 +27,7 @@ bool mediatheque::load_from_file(string filename)
 	ifstream infile;
 
 	infile.open(filename.c_str());
+	m_biblio.clear();
 	if (infile.is_open())
 	{
 		while (!infile.eof())
@@ -48,7 +49,6 @@ bool mediatheque::load_from_file(string filename)
 		infile.close();
 		return true;
 	}
-	//remplir m_biblio en utilisant les constructeurs et ajout()
 	else
 		return false;
 }

@@ -41,10 +41,10 @@ livre::~livre()
 void livre::affiche() // affichage a mettre en forme
 {
 	media::affiche();
-	cout << m_annee << endl;
-	cout << m_pages << endl;
-	cout << m_collection << endl;
-	cout << m_resume << endl;
+	cout << "Année: " << m_annee << endl;
+	cout << m_pages << " pages" << endl;
+	cout << "Collection: " << m_collection << endl;
+	cout << "Résumé: " << m_resume << endl;
 }
 
 void livre::save_media(ofstream* file)

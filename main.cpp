@@ -19,17 +19,17 @@ int main(int argc, char const *argv[])
 	//media* revue1 = new revue(titre.size(), "Boris", titre, 2017, 100, "Test", "Deep Inside", "Telmo", "Wars", DISPONIBLE);
 	//media* book3 = new livre();
 
-    test -> ajout(book1);
-    test -> ajout(book2);
+    //test -> ajout(book1);
+    //test -> ajout(book2);
 
 
-	//test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
+	test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
 	// test -> affiche(0);
 	// cout << endl;
 	// test -> affiche(1);
 	// cout << endl;
 	test -> affiche();
-    test -> save_to_file("saving.txt");
+    //test -> save_to_file("saving.txt");
 	// cout << endl;
 	// test -> suppr(0);
 	// test -> affiche();
