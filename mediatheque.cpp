@@ -17,6 +17,12 @@ mediatheque::~mediatheque()
 	
 }
 
+int mediatheque::taille()
+{
+	return m_biblio.size();
+}
+
+
 bool mediatheque::load_from_file(string filename)
 {
 	string buffer;
@@ -114,7 +120,30 @@ void mediatheque::ajout(int type, vector<string> donnees)
 			break;
 		default:
 			break;
+	}
+}
 
+void mediatheque::ajout(int type)
+{
+	switch(type)
+	{
+		case LIVRE :
+			m_biblio.emplace_back(new livre());
+			break;
+		case REVUE :
+			break;
+		case VHS :
+			m_biblio.emplace_back(new vhs());
+			break;
+		case CD :
+		case DVD :
+			m_biblio.emplace_back(new cd_dvd(type));
+			break;
+		case RESSOURCE :
+			m_biblio.emplace_back(new ressource_num());
+			break;
+		default:
+			break;
 	}
 }
 
@@ -141,3 +170,7 @@ void mediatheque::rendre(int indice)
 	m_biblio[indice]->set_dispo(DISPONIBLE);
 }
 
+void mediatheque::clear()
+{
+	m_biblio.clear();
+}

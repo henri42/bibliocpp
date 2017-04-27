@@ -25,11 +25,15 @@ public :
 	~mediatheque();
 
 	//methodes
+	int taille();
+
 	void affiche();
 	void affiche(int indice);
 
 	void ajout(media* const new_media);
+	void ajout(int type);
 	void ajout(int type, std::vector<std::string> data);
+
 	void suppr(int indice);
 
 	// void consulter(int id_cible);
@@ -42,6 +46,8 @@ public :
 
 	bool load_from_file(std::string filename);
     bool save_to_file(std::string filename);
+
+	void clear();
 
 };
 
