@@ -9,6 +9,12 @@ user::user()
     m_id_user = 0;
 }
 
+user::user(mediatheque* new_mediatheque)
+{
+    m_id_user = 0;
+    m_mediatheque = new_mediatheque;
+}
+
 user::~user()
 {
 
@@ -21,6 +27,9 @@ bool user::lecture_commande()
     string arg;
     unsigned long espace;
     int type, id;
+
+    cout << endl;
+    cout << "Entrez une commande: " << endl;
 
     getline(cin, saisie);
     unsigned long taille = saisie.size();
@@ -36,19 +45,19 @@ bool user::lecture_commande()
         else
             cmd = saisie;
 
-        if (cmd.compare("ADD"))
+        if (!cmd.compare("ADD"))
         {
-            if (arg.compare("livre"))
+            if (!arg.compare("livre"))
                 type = LIVRE;
-            else if (arg.compare("revue"))
+            else if (!arg.compare("revue"))
                 type = REVUE;
-            else if (arg.compare("vhs"))
+            else if (!arg.compare("vhs"))
                 type = VHS;
-            else if (arg.compare("cd"))
+            else if (!arg.compare("cd"))
                 type = CD;
-            else if (arg.compare("dvd"))
-                type = DVD
-            else if (arg.compare("ressource"))
+            else if (!arg.compare("dvd"))
+                type = DVD;
+            else if (!arg.compare("ressource"))
                 type = RESSOURCE;
             else {
                 cout << "Les type de médias sont: livre revue vhs cd dvd et ressource" << endl;
@@ -58,28 +67,28 @@ bool user::lecture_commande()
             return true;
         }
 
-        else if (cmd.compare("BYE"))
+        else if (!cmd.compare("BYE"))
             exit(0);
 
-        else if (cmd.compare("LOAD"))
+        else if (!cmd.compare("LOAD"))
             return m_mediatheque->load_from_file(arg);
 
-        else if (cmd.compare("SAVE"))
+        else if (!cmd.compare("SAVE"))
             return m_mediatheque->save_to_file(arg);
 
-        else if (cmd.compare("SEARCH"))
+        else if (!cmd.compare("SEARCH"))
             // a completer
             return true;
 
-        else if (cmd.compare("CLEAR"))
+        else if (!cmd.compare("CLEAR"))
             // a completer
             return true;
 
-        else if (cmd.compare("LIST"))
+        else if (!cmd.compare("LIST"))
             // a completer
             return true;
 
-        else if (cmd.compare("SHOW"))
+        else if (!cmd.compare("SHOW"))
         {
             id = stoi(arg);
             if ( (id >= 0) && (id < m_mediatheque->taille()) )
@@ -87,10 +96,13 @@ bool user::lecture_commande()
                 m_mediatheque->affiche(id);
                 return true;
             }
-            else return false;
+            else {
+                cout << "ID non présent dans la bibliothèque" << endl;
+                return false;
+            }
         }
 
-        else if (cmd.compare("DELETE"))
+        else if (!cmd.compare("DELETE"))
         {
             id = stoi(arg);
             if ( (id >= 0) && (id < m_mediatheque->taille()) )
@@ -101,12 +113,16 @@ bool user::lecture_commande()
             else return false;
         }
 
-        else if (cmd.compare("RESET"))
+        else if (!cmd.compare("RESET"))
         {
             cout << "Réinitialisation de la médiathèque" << endl;
             m_mediatheque->clear();
             return true;
         }
 
+        else return false;
+
     }
+
+    else return false;
 }

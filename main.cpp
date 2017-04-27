@@ -3,16 +3,13 @@
 #include <iostream>
 #include <vector>
 #include "mediatheque.hpp"
-#include "media.hpp"
-#include "livre.hpp"
-#include "VHS.hpp"
-#include "revue.hpp"
+#include "user.hpp"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	//vector<string> titre = {"Titre 1", "Titre 2", "Titre 3", "Titre 4", "Titre 5"};
+	vector<string> titre = {"Titre 1", "Titre 2", "Titre 3", "Titre 4", "Titre 5"};
 	mediatheque* test = new mediatheque();
 	media* book1 = new livre(1995, 1000, "House", "Back once again for the ready go master", "Telmo", "Wars", EMPRUNTE);
 	media* book2 = new livre(19, 50, "AZERTYUI", "OK", "Victor Hugo", "Paris", DISPONIBLE);
@@ -21,14 +18,16 @@ int main(int argc, char const *argv[])
 
     //test -> ajout(book1);
     //test -> ajout(book2);
+	user* henri = new user(test);
+	henri->lecture_commande();
 
 
-	test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
+	//test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
 	// test -> affiche(0);
 	// cout << endl;
 	// test -> affiche(1);
 	// cout << endl;
-	test -> affiche();
+	//test -> affiche();
     //test -> save_to_file("saving.txt");
 	// cout << endl;
 	// test -> suppr(0);

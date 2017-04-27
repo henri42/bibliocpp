@@ -11,6 +11,7 @@ private:
 
 public:
     user();
+    user(mediatheque* new_mediatheque);
     ~user();
 
     bool lecture_commande();
