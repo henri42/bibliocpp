@@ -30,13 +30,11 @@ public :
 	void affiche(int indice);
 
 	void ajout(media* const new_media);
-<<<<<<< HEAD
-	void ajout(int type, std::vector<std::string> data, std::vector<std::string> articles);
-=======
-	void ajout(int type);
-	void ajout(int type, std::vector<std::string> data);
 
->>>>>>> 311849d5a8b51de2af30bf9f8241c4b40f28ec31
+	void ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles);
+
+	void ajout(int type);
+
 	void suppr(int indice);
 
 	// void consulter(int id_cible);

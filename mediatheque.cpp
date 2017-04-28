@@ -115,11 +115,7 @@ void mediatheque::ajout(media* const new_media)
 	m_biblio.push_back(new_media); //ajout
 }
 
-<<<<<<< HEAD
 void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles)
-=======
-void mediatheque::ajout(int type, vector<string> donnees)
->>>>>>> 311849d5a8b51de2af30bf9f8241c4b40f28ec31
 {
 	switch(type)
 	{
