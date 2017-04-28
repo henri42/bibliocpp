@@ -7,6 +7,8 @@
 
 using namespace std;
 
+std::vector<media*> stock_recherche;
+
 mediatheque::mediatheque()
 {
 
@@ -20,6 +22,73 @@ mediatheque::~mediatheque()
 int mediatheque::taille()
 {
 	return m_biblio.size();
+}
+
+
+void mediatheque::search_media()
+{
+	int counter = 0;
+	string buffer;
+	int flag = 0;
+
+	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
+	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
+	cin >> buffer;
+	cout << "Les médias correspondant sont:" << endl;
+	
+		for (int i = 0; i < m_biblio.size(); i++)
+		{
+			if(m_biblio[i]->search(buffer))
+			{
+				affiche(i);
+				cout << endl << endl;
+				stock_recherche.push_back(m_biblio[i]);
+				counter++;
+			}
+		}
+		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
+		cin >> flag;
+		if (flag)
+			search_media(stock_recherche);
+		else
+		{
+			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << buffer <<"' est: " << counter << endl;
+			stock_recherche.clear();
+		}
+
+}
+
+void mediatheque::search_media(vector<media*> biblio)
+{
+	int counter = 0;
+	string buffer;
+	int flag = 0;
+	std::vector<media*> stock_recherches;
+
+	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
+	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
+	cin >> buffer;
+	cout << "Les médias correspondant sont:" << endl;
+	
+		for (int i = 0; i < biblio.size(); i++)
+		{
+			if(biblio[i]->search(buffer))
+			{
+				affiche(i);
+				cout << endl << endl;
+				stock_recherches.push_back(biblio[i]);
+				counter++;
+			}
+		}
+		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
+		cin >> flag;
+		if (flag)
+			search_media(stock_recherches);
+		else
+		{
+			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << buffer <<"' est: " << counter << endl;
+			stock_recherches.clear();
+		}
 }
 
 
@@ -169,6 +238,7 @@ void mediatheque::ajout(int type)
 			break;
 	}
 }
+
 
 
 void mediatheque::suppr(int indice)

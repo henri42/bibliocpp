@@ -24,6 +24,7 @@ public :
 	livre(std::string annee, std::string pages, std::string collection, std::string resume, std::string auteur, std::string nom);
 	~livre();
 
+	bool search(std::string buffer);
 	void affiche(); //pas besoin de preciser virtual car le virtual s'herite
     void save_media(std::ofstream* file);
 };

@@ -56,3 +56,15 @@ void livre::save_media(ofstream* file)
 	*file << m_resume << endl;
     media::save_media(file);
 }
+
+bool livre::search(string buffer)
+{
+	string stock_type = to_string(m_type);
+	string stock_dispo = to_string(m_dispo);
+	string stock_annee = to_string(m_annee);
+	string stock_pages = to_string(m_pages);
+	if (stock_annee == buffer || stock_pages == buffer || m_collection == buffer || m_resume == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+		return true;
+	else
+		return false;
+}

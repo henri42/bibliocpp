@@ -30,6 +30,7 @@ class revue : public livre
 		revue(std::string editeur, std::vector<std::string> liste_articles, std::string annee, std::string pages, std::string collection, std::string resume, std::string auteur, std::string nom);
 		~revue();
         void save_media(std::ofstream* file);
+       	bool search(std::string buffer);
 
 };
 

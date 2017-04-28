@@ -41,3 +41,15 @@ void cd_dvd::save_media(ofstream* file)
     *file << m_piste << endl;
     media::save_media(file);
 }
+
+bool cd_dvd::search(string buffer)
+{
+    string stock_type = to_string(m_type);
+    string stock_dispo = to_string(m_dispo);
+    string stock_duree = to_string(m_duree);
+    string stock_piste = to_string(m_piste);
+    if (stock_piste == buffer || stock_duree == buffer || m_maison_production == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+        return true;
+    else
+        return false;
+}

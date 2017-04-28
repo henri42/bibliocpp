@@ -22,6 +22,7 @@ class cd_dvd : public vhs
 
 		void affiche();
 		void save_media(std::ofstream* file);
+		bool search(std::string buffer);
 };
 
 #endif

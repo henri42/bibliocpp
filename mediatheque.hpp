@@ -43,7 +43,8 @@ public :
 	int emprunter(int indice);
 	void rendre(int indice);
 
-	// void rechercher(char* nom);
+	void search_media();
+	void search_media(std::vector<media*> biblio);
 
 	bool load_from_file(std::string filename);
     bool save_to_file(std::string filename);

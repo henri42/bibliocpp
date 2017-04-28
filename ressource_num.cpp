@@ -50,3 +50,14 @@ void ressource_num::save_media(ofstream* file)
     *file << m_chemin << endl;
     media::save_media(file);
 }
+
+bool ressource_num::search(string buffer)
+{
+    string stock_type = to_string(m_type);
+    string stock_dispo = to_string(m_dispo);
+    string stock_taille = to_string(m_taille);
+    if (stock_taille == buffer || m_format == buffer || m_chemin == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+        return true;
+    else
+        return false;
+}

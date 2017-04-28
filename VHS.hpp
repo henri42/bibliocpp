@@ -9,7 +9,7 @@
 class vhs : public media 
 {
 	//Attributs
-	private :
+	protected :
 		int m_duree;					//Durée de la vidéo en minutes
 		std::string m_maison_production;
 	
@@ -23,6 +23,7 @@ class vhs : public media
 
 		void affiche();
 		void save_media(std::ofstream* file);
+		bool search(std::string buffer);
 };
 
 #endif

@@ -37,6 +37,7 @@ public:
 	void set_dispo(int dispo);
 
 	virtual void save_media(std::ofstream* file);
+	virtual bool search(std::string buffer);
 };
 
 #endif

@@ -61,10 +61,10 @@ void revue::affiche() // affichage a mettre en forme
 	cout << "Le nombre d'articles de cette revue est :" << m_nb_articles << endl;
 	cout << "La liste de tous les articles de la revue est la suivante:" << endl;
 	affiche_articles(-1);
-	cout << endl << endl;
+	/*cout << endl << endl;
 	cout << "Entrez l'index d'un article si vous voulez un résumé de celui-ci" << endl;
 	cin >> m_id_article;
-	affiche_articles(m_id_article*2);
+	affiche_articles(m_id_article*2);*/
 	cout << endl;
 }
 
@@ -77,4 +77,17 @@ void revue::save_media(ofstream* file)
 	*file << "---" << endl;
 	//sauvegarde des articles
 	*file << "---" << endl;
+}
+
+bool revue::search(string buffer)
+{
+	string stock_type = to_string(m_type);
+	string stock_dispo = to_string(m_dispo);
+	string stock_annee = to_string(m_annee);
+	string stock_pages = to_string(m_pages);
+	string stock_nb_articles = to_string(m_nb_articles);
+	if (stock_nb_articles == buffer || m_editeur == buffer || stock_annee == buffer || stock_pages == buffer || m_collection == buffer || m_resume == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+		return true;
+	else
+		return false;
 }

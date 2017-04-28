@@ -26,6 +26,7 @@ class ressource_num : public media
 
         void affiche();
 		void save_media(std::ofstream* file);
+		bool search(std::string buffer);
 
 };
 

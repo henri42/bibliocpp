@@ -60,3 +60,13 @@ void media::save_media(ofstream* file)
     *file << m_nom << endl;
     *file << "###" << endl;
 }
+
+bool media::search(string buffer)
+{
+	string stock_type = to_string(m_type);
+	string stock_dispo = to_string(m_dispo);
+	if (stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+		return true;
+	else
+		return false;
+}

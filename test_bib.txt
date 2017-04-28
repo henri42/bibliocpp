@@ -22,7 +22,7 @@ ET
 ###
 1
 Editeur de la revue
-1996
+2002
 234
 Michel Lafon
 Petite histoire de ratata
@@ -36,4 +36,12 @@ Le résumé de l'article 2
 Article 3
 Le résumé de l'article 3
 ---
+###
+0
+1996
+40
+Toi
+OKLMZER
+Serge Lama
+Les souris
 ###
