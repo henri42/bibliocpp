@@ -16,6 +16,13 @@ revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int
 	m_liste_articles = liste_articles;
 }
 
+revue::revue(int nb_articles, string editeur, vector<string> liste_articles, string annee, string pages, string collection, string resume, string auteur, string nom) : livre(annee, pages, collection, resume, auteur, nom)
+{
+	m_nb_articles = nb_articles;
+	m_editeur = editeur;
+	m_liste_articles = liste_articles;
+}
+
 revue::~revue()
 {
 	

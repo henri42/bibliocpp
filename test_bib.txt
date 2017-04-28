@@ -28,7 +28,7 @@ Michel Lafon
 Petite histoire de ratata
 Serge Lama
 Les rats sont de sortie
----
+___
 Article 1
 Le résumé de l'article 1
 Article 2

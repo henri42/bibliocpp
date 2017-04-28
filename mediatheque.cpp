@@ -53,7 +53,7 @@ bool mediatheque::load_from_file(string filename)
 			}
 			else
 			{
-				if (buffer.compare("---")==0) //début des articles
+				if (buffer.compare("___")==0) //début des articles
 				{
 					do
 					{
@@ -123,7 +123,7 @@ void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<
 			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
 			break;
 		case REVUE :
-			m_biblio.emplace_back(new revue(articles.size()/2, donnees[1], articles, stoi(donnees[2]), stoi(donnees[3]), donnees[4], donnees[5], donnees[6], donnees[7], stoi(donnees[8])));
+			m_biblio.emplace_back(new revue(articles.size()/2, donnees[1], articles, donnees[2], donnees[3], donnees[4], donnees[5], donnees[6], donnees[7]));
 			break;
 		case VHS :
 			m_biblio.emplace_back(new vhs(donnees[1], donnees[2], donnees[3], donnees[4]));
