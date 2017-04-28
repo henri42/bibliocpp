@@ -69,4 +69,7 @@ void revue::save_media(ofstream* file)
 	*file << m_nb_articles << endl;
 	*file << m_editeur << endl;
 	media::save_media(file);
+	*file << "---" << endl;
+	//sauvegarde des articles
+	*file << "---" << endl;
 }

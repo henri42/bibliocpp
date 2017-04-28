@@ -107,10 +107,14 @@ bool user::lecture_commande()
             id = stoi(arg);
             if ( (id >= 0) && (id < m_mediatheque->taille()) )
             {
+                cout << "Suppression du média " << id << endl;
                 m_mediatheque->suppr(id);
                 return true;
             }
-            else return false;
+            else {
+                cout << "ID non présent dans la bibliothèque" << endl;
+                return false;
+            }
         }
 
         else if (!cmd.compare("RESET"))
