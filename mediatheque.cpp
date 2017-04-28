@@ -30,6 +30,7 @@ bool mediatheque::load_from_file(string filename)
 	vector<string> articles;
 	int i;
 	int type;
+	int flag;
 
 	ifstream infile;
 
@@ -46,7 +47,7 @@ bool mediatheque::load_from_file(string filename)
 				//creation du media precedent grace a donnees
 				type = stoi(donnees[0]);
 				if (type != REVUE)
-					articles.push_back("0");
+					articles.push_back("0"); //On remplit article d'un "0" pour ne pas qu'il soit vide
 				ajout(type, donnees, articles);
 				articles.clear(); //effacement du vector articles
 				donnees.clear(); //puis effacement de donnees
@@ -54,17 +55,22 @@ bool mediatheque::load_from_file(string filename)
 			else
 			{
 				if (buffer.compare("___")==0) //début des articles
+					flag = 1;
+				else if (buffer.compare("---")==0)
+					flag = 0;
+
+
+
+				if (flag)	// si les articles d'une revue commencent, on remplit le tableau articles
 				{
-					do
-					{
-						getline(infile, buffer);
-						if (!(buffer.compare("---")==0))
-							articles.push_back(buffer); //on ajoute le titre des articles et leurs resumés dans le vector articles
-					}
-					while (!(buffer.compare("---")==0)); //jusqu'à la fin de la liste d'articles
+					if (!(buffer.compare("---")==0) && !(buffer.compare("___")==0))
+						articles.push_back(buffer);
 				}
-				if (!(buffer.compare("---")==0))
-					donnees.push_back(buffer);
+				else		// sinon on continu à remplir donnees
+				{
+					if (!(buffer.compare("---")==0) && !(buffer.compare("---")==0))
+						donnees.push_back(buffer);
+				}
 			}
 
 		}	 
@@ -123,7 +129,7 @@ void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<
 			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
 			break;
 		case REVUE :
-			m_biblio.emplace_back(new revue(articles.size()/2, donnees[1], articles, donnees[2], donnees[3], donnees[4], donnees[5], donnees[6], donnees[7]));
+			m_biblio.emplace_back(new revue(donnees[1], articles, donnees[2], donnees[3], donnees[4], donnees[5], donnees[6], donnees[7]));
 			break;
 		case VHS :
 			m_biblio.emplace_back(new vhs(donnees[1], donnees[2], donnees[3], donnees[4]));
