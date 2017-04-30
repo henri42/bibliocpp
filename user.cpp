@@ -109,7 +109,11 @@ bool user::lecture_commande()
         }
 
         else if (!cmd.compare("BYE"))
-            exit(0); //bye()
+        {
+            bye();
+            return true;
+        }
+
 
         else if (!cmd.compare("LOAD"))
             return m_mediatheque->load_from_file(arg); //load()
