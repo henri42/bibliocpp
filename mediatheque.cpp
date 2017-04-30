@@ -28,17 +28,19 @@ int mediatheque::taille()
 void mediatheque::search_media()
 {
 	int counter = 0;
-	string buffer;
+	string mot;
+	vector<string> buffer;
 	int flag = 0;
 
 	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
 	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-	cin >> buffer;
+	cin >> mot;
+	buffer.push_back(mot);
 	cout << "Les médias correspondant sont:" << endl;
 	
 		for (int i = 0; i < m_biblio.size(); i++)
 		{
-			if(m_biblio[i]->search(buffer))
+			if(m_biblio[i]->search(mot))
 			{
 				affiche(i);
 				cout << endl << endl;
@@ -46,47 +48,61 @@ void mediatheque::search_media()
 				counter++;
 			}
 		}
+
 		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
 		cin >> flag;
 		if (flag)
-			search_media(stock_recherche);
+			search_media(stock_recherche, buffer);
 		else
 		{
-			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << buffer <<"' est: " << counter << endl;
+			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << mot <<"' est/sont: " << counter << endl;
 			stock_recherche.clear();
 		}
 
 }
 
-void mediatheque::search_media(vector<media*> biblio)
+void mediatheque::search_media(vector<media*> biblio, vector<string> buffer)
 {
 	int counter = 0;
-	string buffer;
+	string mot;
 	int flag = 0;
 	std::vector<media*> stock_recherches;
 
+
 	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
 	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-	cin >> buffer;
+	cin >> mot;
+	buffer.push_back(mot);
 	cout << "Les médias correspondant sont:" << endl;
 	
 		for (int i = 0; i < biblio.size(); i++)
 		{
-			if(biblio[i]->search(buffer))
+			if(biblio[i]->search(mot))
 			{
-				affiche(i);
-				cout << endl << endl;
 				stock_recherches.push_back(biblio[i]);
 				counter++;
 			}
 		}
+
+		for (int j = 0; j < stock_recherches.size(); j++)
+		{
+			cout << endl;
+			stock_recherches[j] -> affiche();
+			cout << endl;
+		}
+
 		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
 		cin >> flag;
 		if (flag)
-			search_media(stock_recherches);
+			search_media(stock_recherches, buffer);
 		else
 		{
-			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << buffer <<"' est: " << counter << endl;
+			cout << "FIN de la recherche, le nombre de médias contenant le mot clé ";
+			for (int k = 0; k < buffer.size(); k++)
+			{
+				cout << "'" << buffer[k] << "', ";
+			}
+			cout << " est/sont: " << counter << endl;
 			stock_recherches.clear();
 		}
 }

@@ -44,7 +44,7 @@ public :
 	void rendre(int indice);
 
 	void search_media();
-	void search_media(std::vector<media*> biblio);
+	void search_media(std::vector<media*> biblio, std::vector<std::string> buffer);
 
 	bool load_from_file(std::string filename);
     bool save_to_file(std::string filename);
