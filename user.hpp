@@ -14,6 +14,10 @@ public:
     user(mediatheque* new_mediatheque);
     ~user();
 
+    void bye();
+    void show(int id);
+    void search(std::string saisie);
+
     bool lecture_commande();
 
 };

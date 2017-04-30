@@ -30,11 +30,11 @@ void mediatheque::search_media()
 	int counter = 0;
 	string mot;
 	vector<string> buffer;
-	int flag = 0;
+	string flag;
 
 	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
 	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-	cin >> mot;
+    getline(cin, mot);
 	buffer.push_back(mot);
 	cout << "Les médias correspondant sont:" << endl;
 	
@@ -49,13 +49,13 @@ void mediatheque::search_media()
 			}
 		}
 
-		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
-		cin >> flag;
-		if (flag)
+		cout << "Voulez incrémenter la recherche ? (oui, non)." << endl;
+        getline(cin, flag);
+        if (flag.compare("oui")==0)
 			search_media(stock_recherche, buffer);
-		else
+		else if (flag.compare("non")==0)
 		{
-			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << mot <<"' est/sont: " << counter << endl;
+			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << mot <<"' est: " << counter << endl;
 			stock_recherche.clear();
 		}
 
@@ -65,13 +65,13 @@ void mediatheque::search_media(vector<media*> biblio, vector<string> buffer)
 {
 	int counter = 0;
 	string mot;
-	int flag = 0;
+	string flag;
 	std::vector<media*> stock_recherches;
 
 
 	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
 	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-	cin >> mot;
+    getline(cin, mot);
 	buffer.push_back(mot);
 	cout << "Les médias correspondant sont:" << endl;
 	
@@ -91,18 +91,18 @@ void mediatheque::search_media(vector<media*> biblio, vector<string> buffer)
 			cout << endl;
 		}
 
-		cout << "Voulez incrémenter la recherche ? (1: oui, 0: non)." << endl;
-		cin >> flag;
-		if (flag)
+		cout << "Voulez incrémenter la recherche ? (oui, non)." << endl;
+        getline(cin, flag);
+		if (flag.compare("oui")==0)
 			search_media(stock_recherches, buffer);
-		else
+		else if (flag.compare("non")==0)
 		{
 			cout << "FIN de la recherche, le nombre de médias contenant le mot clé ";
 			for (int k = 0; k < buffer.size(); k++)
 			{
 				cout << "'" << buffer[k] << "', ";
 			}
-			cout << " est/sont: " << counter << endl;
+			cout << " est: " << counter << endl;
 			stock_recherches.clear();
 		}
 }
@@ -115,7 +115,7 @@ bool mediatheque::load_from_file(string filename)
 	vector<string> articles;
 	int i;
 	int type;
-	int flag;
+	int flag = 0;
 
 	ifstream infile;
 

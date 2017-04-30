@@ -11,6 +11,7 @@ revue::revue()
 
 revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int annee, int pages, string collection, string resume, string auteur, string nom, int dispo) : livre(annee, pages, collection, resume, auteur, nom, dispo)
 {
+    m_type = REVUE;
 	m_nb_articles = nb_articles;
 	m_editeur = editeur;
 	m_liste_articles = liste_articles;
@@ -18,6 +19,7 @@ revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int
 
 revue::revue(string editeur, vector<string> liste_articles, string annee, string pages, string collection, string resume, string auteur, string nom) : livre(annee, pages, collection, resume, auteur, nom)
 {
+    m_type = REVUE;
 	m_nb_articles = liste_articles.size()/2;
 	m_editeur = editeur;
 	m_liste_articles = liste_articles;
@@ -75,18 +77,18 @@ void revue::save_media(ofstream* file)
 	*file << m_editeur << endl;
 	media::save_media(file);
 	*file << "---" << endl;
-	//sauvegarde des articles
+    for (int i = 0; i < (m_nb_articles*2); i++)
+    {
+        *file << m_liste_articles[i] << endl;
+    }
 	*file << "---" << endl;
 }
 
 bool revue::search(string buffer)
 {
-	string stock_type = to_string(m_type);
-	string stock_dispo = to_string(m_dispo);
-	string stock_annee = to_string(m_annee);
-	string stock_pages = to_string(m_pages);
+    bool search_m = livre::search(buffer);
 	string stock_nb_articles = to_string(m_nb_articles);
-	if (stock_nb_articles == buffer || m_editeur == buffer || stock_annee == buffer || stock_pages == buffer || m_collection == buffer || m_resume == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+	if (stock_nb_articles == buffer || search_m)
 		return true;
 	else
 		return false;

@@ -59,11 +59,10 @@ void livre::save_media(ofstream* file)
 
 bool livre::search(string buffer)
 {
-	string stock_type = to_string(m_type);
-	string stock_dispo = to_string(m_dispo);
+	bool search_m = media::search(buffer);
 	string stock_annee = to_string(m_annee);
 	string stock_pages = to_string(m_pages);
-	if (stock_annee == buffer || stock_pages == buffer || m_collection == buffer || m_resume == buffer || stock_type == buffer || stock_dispo == buffer || m_auteur == buffer || m_nom == buffer)
+	if (stock_annee == buffer || stock_pages == buffer || m_collection == buffer || m_resume == buffer || search_m)
 		return true;
 	else
 		return false;

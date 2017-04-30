@@ -63,35 +63,35 @@ bool user::lecture_commande()
                 cout << "Les type de médias sont: livre revue vhs cd dvd et ressource" << endl;
                 return false;
             }
-            m_mediatheque->ajout(type);
+            m_mediatheque->ajout(type); //add()
             return true;
         }
 
         else if (!cmd.compare("BYE"))
-            exit(0);
+            exit(0); //bye()
 
         else if (!cmd.compare("LOAD"))
-            return m_mediatheque->load_from_file(arg);
+            return m_mediatheque->load_from_file(arg); //load()
 
         else if (!cmd.compare("SAVE"))
-            return m_mediatheque->save_to_file(arg);
+            return m_mediatheque->save_to_file(arg); //save()
 
         else if (!cmd.compare("SEARCH"))
-            // a completer
+            // search ()
             return true;
 
         else if (!cmd.compare("CLEAR"))
-            // a completer
+            // clear ()
             return true;
 
         else if (!cmd.compare("LIST"))
-            // a completer
+            // list ()
             return true;
 
         else if (!cmd.compare("SHOW"))
         {
             id = stoi(arg);
-            if ( (id >= 0) && (id < m_mediatheque->taille()) )
+            if ( (id >= 0) && (id < m_mediatheque->taille()) ) //
             {
                 m_mediatheque->affiche(id);
                 return true;
@@ -99,13 +99,13 @@ bool user::lecture_commande()
             else {
                 cout << "ID non présent dans la bibliothèque" << endl;
                 return false;
-            }
+            } //show(id)
         }
 
         else if (!cmd.compare("DELETE"))
         {
             id = stoi(arg);
-            if ( (id >= 0) && (id < m_mediatheque->taille()) )
+            if ( (id >= 0) && (id < m_mediatheque->taille()) ) //delete(id)
             {
                 cout << "Suppression du média " << id << endl;
                 m_mediatheque->suppr(id);
@@ -114,13 +114,13 @@ bool user::lecture_commande()
             else {
                 cout << "ID non présent dans la bibliothèque" << endl;
                 return false;
-            }
+            } //
         }
 
         else if (!cmd.compare("RESET"))
         {
             cout << "Réinitialisation de la médiathèque" << endl;
-            m_mediatheque->clear();
+            m_mediatheque->clear(); //reset
             return true;
         }
 

@@ -26,8 +26,8 @@ int main(int argc, char const *argv[])
 	//test->load_from_file("/Users/Sophie/bibliocpp/test_bib.txt");
 	// test -> affiche(0);
 	// cout << endl;
-	 test -> affiche();
-	 test -> search_media();
+    test -> affiche();
+    test -> search_media();
 	// cout << endl;
 	//test -> affiche();
     //test -> save_to_file("saving.txt");
