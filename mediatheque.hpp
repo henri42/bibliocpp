@@ -28,6 +28,7 @@ public :
 
 	void affiche();
 	void affiche(int indice);
+	void affiche_short(); //affiche les elements de la mediathèque de facon condensée
 
 	void ajout(media* const new_media);
 

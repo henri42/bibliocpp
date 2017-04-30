@@ -11,6 +11,7 @@ livre::livre() : media(LIVRE)//constructeur bateau
 	cin >> m_annee;
 	cout << "Quel est le nombre de page du livre ?" << endl;
 	cin >> m_pages;
+	cin.ignore();
 	cout << "Quel est la collection ?" << endl;
 	getline(cin, m_collection);
 	cout << "Fournissez un rapide résumé ci-dessous :" << endl;

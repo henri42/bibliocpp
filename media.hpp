@@ -33,6 +33,7 @@ public:
 	virtual ~media();
 
 	virtual void affiche();
+	void affiche_short();
 	int get_dispo();
 	void set_dispo(int dispo);
 

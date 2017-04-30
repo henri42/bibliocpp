@@ -13,11 +13,52 @@ user::user(mediatheque* new_mediatheque)
 {
     m_id_user = 0;
     m_mediatheque = new_mediatheque;
+    m_actif = true;
 }
 
 user::~user()
 {
 
+}
+
+bool user::is_active()
+{
+    return m_actif;
+}
+
+void user::bye()
+{
+    cout << "Fermeture de la bibliothèque" << endl;
+    m_actif = false;
+}
+
+bool user::show(int id)
+{
+    if ( (id >= 0) && (id < m_mediatheque->taille()) ) //
+    {
+        m_mediatheque->affiche(id);
+        return true;
+    }
+    else
+    {
+        cout << "ID non présent dans la bibliothèque" << endl;
+        return false;
+    }
+}
+
+void user::list()
+{
+    m_mediatheque->affiche_short();
+}
+
+void user::search(string saisie)
+{
+    m_mediatheque->search_media();
+}
+
+void user::clear()
+{
+    // fonction recherche de mediatheque a revoir
 }
 
 bool user::lecture_commande()
@@ -60,7 +101,7 @@ bool user::lecture_commande()
             else if (!arg.compare("ressource"))
                 type = RESSOURCE;
             else {
-                cout << "Les type de médias sont: livre revue vhs cd dvd et ressource" << endl;
+                cout << "Les types de médias sont: livre revue vhs cd dvd et ressource" << endl;
                 return false;
             }
             m_mediatheque->ajout(type); //add()
@@ -77,29 +118,25 @@ bool user::lecture_commande()
             return m_mediatheque->save_to_file(arg); //save()
 
         else if (!cmd.compare("SEARCH"))
-            // search ()
+        {
+            search(arg);
             return true;
+        }
 
         else if (!cmd.compare("CLEAR"))
             // clear ()
             return true;
 
         else if (!cmd.compare("LIST"))
-            // list ()
+        {
+            list();
             return true;
+        }
 
         else if (!cmd.compare("SHOW"))
         {
             id = stoi(arg);
-            if ( (id >= 0) && (id < m_mediatheque->taille()) ) //
-            {
-                m_mediatheque->affiche(id);
-                return true;
-            }
-            else {
-                cout << "ID non présent dans la bibliothèque" << endl;
-                return false;
-            } //show(id)
+            return show(id);
         }
 
         else if (!cmd.compare("DELETE"))

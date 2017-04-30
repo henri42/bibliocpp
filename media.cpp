@@ -44,6 +44,13 @@ void media::affiche()
 	cout << dispos[m_dispo] << endl;
 }
 
+void media::affiche_short()
+{
+	cout << " | " << m_nom
+		 << " | " << types[m_type]
+		 << " | " << dispos[m_dispo] << endl;
+}
+
 int media::get_dispo()
 {
 	return m_dispo;
