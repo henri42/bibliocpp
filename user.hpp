@@ -5,7 +5,7 @@
 
 class user
 {
-private:
+protected:
     mediatheque* m_mediatheque;
     int m_id_user;
     bool m_actif;

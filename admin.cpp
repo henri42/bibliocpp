@@ -13,12 +13,12 @@ admin::admin(mediatheque* new_mediatheque) : user(new_mediatheque)
 admin::~admin()
 {}
 
-void user::add(int type)
+void admin::add(int type)
 {
     m_mediatheque->ajout(type);
 }
 
-bool user::del(int id)
+bool admin::del(int id)
 {
     if ( (id >= 0) && (id < m_mediatheque->taille()) ) //
     {
@@ -32,17 +32,17 @@ bool user::del(int id)
     }
 }
 
-bool user::load(string filename)
+bool admin::load(string filename)
 {
     return m_mediatheque->load_from_file(filename);
 }
 
-bool user::save(string filename)
+bool admin::save(string filename)
 {
     return m_mediatheque->save_to_file(filename);
 }
 
-void user::reset()
+void admin::reset()
 {
     m_mediatheque->reset();
 }

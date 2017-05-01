@@ -2,6 +2,7 @@
 #define DEF_ADMIN
 
 #include "mediatheque.hpp"
+#include "user.hpp"
 
 class admin : public user
 {
