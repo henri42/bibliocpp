@@ -67,12 +67,41 @@ void user::clear()
         m_is_saved = !(m_mediatheque->load_from_file("save_search.txt"));
 }
 
+void user::add(int type)
+{
+    m_mediatheque->ajout(type);
+}
+
+bool user::del(int id)
+{
+    if ( (id >= 0) && (id < m_mediatheque->taille()) ) //
+    {
+        m_mediatheque->suppr(id);
+        return true;
+    }
+    else
+    {
+        cout << "ID non présent dans la bibliothèque" << endl;
+        return false;
+    }
+}
+
+bool user::load(string filename)
+{
+    return m_mediatheque->load_from_file(filename);
+}
+
+bool user::save(string filename)
+{
+    return m_mediatheque->save_to_file(filename);
+}
+
 void user::reset()
 {
     m_mediatheque->reset();
 }
 
-bool user::lecture_commande()
+void user::lecture_commande()
 {
     string saisie;
     string cmd;
@@ -85,6 +114,8 @@ bool user::lecture_commande()
 
     getline(cin, saisie);
     unsigned long taille = saisie.size();
+
+    cout << endl;
 
     if (taille != 0)
     {
@@ -111,77 +142,74 @@ bool user::lecture_commande()
                 type = DVD;
             else if (!arg.compare("ressource"))
                 type = RESSOURCE;
-            else {
-                cout << "Les types de médias sont: livre revue vhs cd dvd et ressource" << endl;
-                return false;
-            }
-            m_mediatheque->ajout(type); //add()
-            return true;
+            else
+                cout << "Les types de médias sont: 'livre' 'revue' 'vhs' 'cd' 'dvd' 'ressource'" << endl;
+
+            add(type); //ajout
         }
 
         else if (!cmd.compare("BYE"))
-        {
             bye();
-            return true;
-        }
 
 
         else if (!cmd.compare("LOAD"))
-            return m_mediatheque->load_from_file(arg); //load()
+            load(arg);
 
         else if (!cmd.compare("SAVE"))
-            return m_mediatheque->save_to_file(arg); //save()
+            save(arg);
 
         else if (!cmd.compare("SEARCH"))
         {
             res = search(arg);
             cout << res << " résulats" << endl;
-            return true;
         }
 
         else if (!cmd.compare("CLEAR"))
         {
+            cout<< "--- FIN DE LA RECHERCHE ---" << endl;
             clear();
-            return true;
         }
 
         else if (!cmd.compare("LIST"))
-        {
             list();
-            return true;
-        }
 
         else if (!cmd.compare("SHOW"))
         {
             id = stoi(arg);
-            return show(id);
+            show(id);
         }
 
         else if (!cmd.compare("DELETE"))
         {
             id = stoi(arg);
-            if ( (id >= 0) && (id < m_mediatheque->taille()) ) //delete(id)
-            {
-                cout << "Suppression du média " << id << endl;
-                m_mediatheque->suppr(id);
-                return true;
-            }
-            else {
-                cout << "ID non présent dans la bibliothèque" << endl;
-                return false;
-            } //
+            del(id);
         }
 
         else if (!cmd.compare("RESET"))
         {
             cout << "Réinitialisation de la médiathèque" << endl;
             reset();
-            return true;
         }
 
-        else return false;
+        else if (!cmd.compare("HELP"))
+        {
+            cout << "--- Liste des commandes ---" << endl << endl
+                 << "BYE" << endl
+                 << "ADD type" << endl
+                 << "LOAD filename" << endl
+                 << "SAVE filename" << endl
+                 << "SEARCH saisie" << endl
+                 << "CLEAR" << endl
+                 << "LIST" << endl
+                 << "SHOW id" << endl
+                 << "DELETE id" << endl
+                 << "RESET" << endl;
+        }
+
+        else
+        {
+            cout << "Commande non reconnue, tapez HELP pour connaître la liste des commandes." << endl;
+        }
 
     }
-
-    else return false;
 }

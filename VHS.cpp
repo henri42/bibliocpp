@@ -7,8 +7,9 @@ vhs::vhs() : media(VHS)
 {
 	cout << "Quel est la maison de production ?" << endl;
 	getline(cin, m_maison_production);	
-	cout << "Quelle est la durée du média (en secondes) ?" << endl;
+	cout << "Quelle est la durée du média (en minutes) ?" << endl;
 	cin >> m_duree;
+	cin.ignore();
 }
 
 vhs::vhs(int duree, string maison_production, string auteur, string nom, int dispo) : media(auteur, nom, VHS, dispo)

@@ -26,14 +26,14 @@ public:
     void clear();
 
     // methodes accessibles admin
-    //virtual void add(int type);
-    //virtual void del(int id);
-    //virtual bool load(std::string filename);
-    //virtual bool save(std::string filename);
+    virtual void add(int type);
+    virtual bool del(int id);
+    virtual bool load(std::string filename);
+    virtual bool save(std::string filename);
     virtual void reset();
 
 
-    bool lecture_commande();
+    void lecture_commande();
 
 };
 

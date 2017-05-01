@@ -11,7 +11,7 @@ ressource_num::ressource_num() : media(RESSOURCE)//constructeur bateau
     getline(cin, m_chemin);
     cout << "Quel est le format de la ressource ?" << endl;
     getline(cin, m_format);
-    cout << "Quel est la taille en octets de la ressource ?" << endl;
+    cout << "Quel est la taille en Mo de la ressource ?" << endl;
     cin >> m_taille;
     cin.ignore();
 }

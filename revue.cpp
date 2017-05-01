@@ -60,7 +60,7 @@ void revue::affiche_articles(int index)
 void revue::affiche() // affichage a mettre en forme
 {
 	livre::affiche();
-	cout << "Le nombre d'articles de cette revue est :" << m_nb_articles << endl;
+	cout << m_nb_articles << " articles sont présents dans la revue" << endl;
 	cout << "La liste de tous les articles de la revue est la suivante:" << endl;
 	affiche_articles(-1);
 	/*cout << endl << endl;
