@@ -51,14 +51,25 @@ void user::list()
     m_mediatheque->affiche_short();
 }
 
-void user::search(string saisie)
+int user::search(string saisie)
 {
-    m_mediatheque->search_media();
+    vector<media*> result_search;
+
+    if (!m_is_saved)
+        m_is_saved = m_mediatheque->save_to_file("save_search.txt");
+
+    return m_mediatheque->search_media_bib(saisie, result_search);
 }
 
 void user::clear()
 {
-    // fonction recherche de mediatheque a revoir
+    if (m_is_saved)
+        m_is_saved = !(m_mediatheque->load_from_file("save_search.txt"));
+}
+
+void user::reset()
+{
+    m_mediatheque->reset();
 }
 
 bool user::lecture_commande()
@@ -67,7 +78,7 @@ bool user::lecture_commande()
     string cmd;
     string arg;
     unsigned long espace;
-    int type, id;
+    int type, id, res;
 
     cout << endl;
     cout << "Entrez une commande: " << endl;
@@ -123,13 +134,16 @@ bool user::lecture_commande()
 
         else if (!cmd.compare("SEARCH"))
         {
-            search(arg);
+            res = search(arg);
+            cout << res << " résulats" << endl;
             return true;
         }
 
         else if (!cmd.compare("CLEAR"))
-            // clear ()
+        {
+            clear();
             return true;
+        }
 
         else if (!cmd.compare("LIST"))
         {
@@ -161,7 +175,7 @@ bool user::lecture_commande()
         else if (!cmd.compare("RESET"))
         {
             cout << "Réinitialisation de la médiathèque" << endl;
-            m_mediatheque->clear(); //reset
+            reset();
             return true;
         }
 

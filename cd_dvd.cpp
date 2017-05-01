@@ -39,6 +39,8 @@ void cd_dvd::save_media(ofstream* file)
 {
     *file << m_type << endl;
     *file << m_piste << endl;
+    *file << m_maison_production << endl;
+    *file << m_duree << endl;
     media::save_media(file);
 }
 

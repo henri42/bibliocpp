@@ -21,9 +21,30 @@ mediatheque::~mediatheque()
 
 int mediatheque::taille()
 {
-	return m_biblio.size();
+	return (int)m_biblio.size();
 }
 
+int mediatheque::search_media_bib(string saisie, vector<media*> stock_recherche)
+{
+    int counter = 0;        //compte les resultats positifs de la recherches
+    string flag;
+
+    cout << "--- RECHERCHE LANCEE ---" << endl;
+
+    for (int i = 0; i < m_biblio.size(); i++)
+    {
+        if(m_biblio[i]->search(saisie))
+        {
+            stock_recherche.push_back(m_biblio[i]);
+            counter++;
+        }
+    }
+
+    if (counter != 0)
+        m_biblio = stock_recherche;
+
+    return counter;
+}
 
 void mediatheque::search_media()
 {
@@ -115,7 +136,7 @@ bool mediatheque::load_from_file(string filename)
 	vector<string> articles;
 	int i;
 	int type;
-	int flag = 0;
+	int flag = 0; //flag pour load articles
 
 	ifstream infile;
 
@@ -139,21 +160,14 @@ bool mediatheque::load_from_file(string filename)
 			}
 			else
 			{
-				if (buffer.compare("___")==0) //début des articles
-					flag = 1;
-				else if (buffer.compare("---")==0)
-					flag = 0;
+				if (buffer.compare("---")==0) //début/fin des articles
+					flag = !flag;
 
-
-
-				if (flag)	// si les articles d'une revue commencent, on remplit le tableau articles
-				{
-					if (!(buffer.compare("---")==0) && !(buffer.compare("___")==0))
+                else if (buffer.compare("---") != 0)
+                {
+				    if (flag)	// si les articles d'une revue commencent, on remplit le tableau article
 						articles.push_back(buffer);
-				}
-				else		// sinon on continu à remplir donnees
-				{
-					if (!(buffer.compare("---")==0) && !(buffer.compare("---")==0))
+				    else		// sinon on continu à remplir donnees
 						donnees.push_back(buffer);
 				}
 			}
@@ -290,7 +304,12 @@ void mediatheque::rendre(int indice)
 	m_biblio[indice]->set_dispo(DISPONIBLE);
 }
 
-void mediatheque::clear()
+void mediatheque::reset()
 {
 	m_biblio.clear();
+}
+
+void mediatheque::clear()
+{
+    //
 }

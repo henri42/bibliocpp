@@ -45,11 +45,13 @@ public :
 	void rendre(int indice);
 
 	void search_media();
+    int search_media_bib(std::string saisie, std::vector<media*> stock_recherche);
 	void search_media(std::vector<media*> biblio, std::vector<std::string> buffer);
 
 	bool load_from_file(std::string filename);
     bool save_to_file(std::string filename);
 
+    void reset();
 	void clear();
 
 };

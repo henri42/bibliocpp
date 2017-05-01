@@ -20,7 +20,7 @@ revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int
 revue::revue(string editeur, vector<string> liste_articles, string annee, string pages, string collection, string resume, string auteur, string nom) : livre(annee, pages, collection, resume, auteur, nom)
 {
     m_type = REVUE;
-	m_nb_articles = liste_articles.size()/2;
+	m_nb_articles = (int)liste_articles.size()/2;
 	m_editeur = editeur;
 	m_liste_articles = liste_articles;
 }
@@ -72,16 +72,19 @@ void revue::affiche() // affichage a mettre en forme
 
 void revue::save_media(ofstream* file)
 {
-	*file << RESSOURCE << endl;
-	*file << m_nb_articles << endl;
+	*file << REVUE << endl;
 	*file << m_editeur << endl;
-	media::save_media(file);
 	*file << "---" << endl;
     for (int i = 0; i < (m_nb_articles*2); i++)
     {
         *file << m_liste_articles[i] << endl;
     }
 	*file << "---" << endl;
+	*file << m_annee << endl;
+	*file << m_pages << endl;
+	*file << m_collection << endl;
+	*file << m_resume << endl;
+	media::save_media(file);
 }
 
 bool revue::search(string buffer)

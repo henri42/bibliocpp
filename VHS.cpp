@@ -38,8 +38,8 @@ void vhs::affiche()
 void vhs::save_media(ofstream* file)
 {
 	*file << VHS << endl;
-	*file << m_maison_production << endl;
 	*file << m_duree << endl;
+	*file << m_maison_production << endl;
 	media::save_media(file);
 }
 
