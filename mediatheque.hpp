@@ -30,15 +30,11 @@ public :
 	void affiche(int indice);
 	void affiche_short(); //affiche les elements de la mediathèque de facon condensée
 
-	void ajout(media* const new_media);
-
 	void ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles);
 
 	void ajout(int type);
 
 	void suppr(int indice);
-
-	// void consulter(int id_cible);
 
 	//void reserver(int indice);
 	int emprunter(int indice);

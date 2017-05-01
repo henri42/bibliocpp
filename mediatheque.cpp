@@ -226,11 +226,6 @@ void mediatheque::affiche(int indice) //Affiche le média d'indice "indice" en d
 }
 
 
-void mediatheque::ajout(media* const new_media)
-{
-	m_biblio.push_back(new_media); //ajout
-}
-
 void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles)
 {
 	switch(type)
