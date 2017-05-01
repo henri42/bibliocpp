@@ -47,3 +47,17 @@ void admin::reset()
     m_mediatheque->reset();
 }
 
+void admin::help()
+{
+    cout << "--- Liste des commandes admin ---" << endl << endl
+         << "BYE" << endl
+         << "ADD type" << endl
+         << "LOAD filename" << endl
+         << "SAVE filename" << endl
+         << "SEARCH saisie" << endl
+         << "CLEAR" << endl
+         << "LIST" << endl
+         << "SHOW id" << endl
+         << "DELETE id" << endl
+         << "RESET" << endl;
+}

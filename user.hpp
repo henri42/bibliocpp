@@ -24,6 +24,7 @@ public:
     void list();
     int search(std::string saisie);
     void clear();
+    virtual void help();
 
     // methodes accessibles admin
     virtual void add(int type);

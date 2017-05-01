@@ -11,6 +11,8 @@ public:
     admin(mediatheque* new_mediatheque);
     ~admin();
 
+    void help();
+
     // methodes accessibles admin seulement
     void add(int type);
     bool del(int id);

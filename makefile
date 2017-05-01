@@ -8,7 +8,7 @@ LDFLAGS= -g
 LDLIBS=
 
 #sources et objets
-SRCS=main.cpp mediatheque.cpp media.cpp livre.cpp vhs.cpp revue.cpp cd_dvd.cpp ressource_num.cpp
+SRCS=main.cpp user.cpp admin.cpp mediatheque.cpp media.cpp livre.cpp vhs.cpp revue.cpp cd_dvd.cpp ressource_num.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
 
 all: $(NAMEPROG)
@@ -16,9 +16,13 @@ all: $(NAMEPROG)
 $(NAMEPROG): $(OBJS)
 	$(CXX) $(LDFLAGS) -o $(NAMEPROG) $^ $(LDLIBS)
 
-main.o: main.cpp mediatheque.hpp media.hpp livre.hpp vhs.hpp revue.cpp
+main.o: $(SRCS)
 
 mediatheque.o: mediatheque.cpp mediatheque.hpp
+
+admin.o: admin.cpp admin.hpp
+
+user.o: user.cpp user.hpp
 
 media.o: media.cpp media.hpp
 

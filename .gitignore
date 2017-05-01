@@ -40,6 +40,7 @@ Thumbs.db
 #########
 cmake-build-debug
 CMakeLists.txt
+save_search.txt
 .idea
 *.pdf
 bibliotheque

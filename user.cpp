@@ -67,6 +67,16 @@ void user::clear()
         m_is_saved = !(m_mediatheque->load_from_file("save_search.txt"));
 }
 
+void user::help()
+{
+    cout << "--- Liste des commandes ---" << endl << endl
+         << "BYE" << endl
+         << "SEARCH saisie" << endl
+         << "CLEAR" << endl
+         << "LIST" << endl
+         << "SHOW id" << endl;
+}
+
 void user::add(int type)
 {
     cout << "Vous n'avez pas les droit d'administrateur" << endl;
@@ -101,7 +111,8 @@ void user::lecture_commande()
     string cmd;
     string arg;
     unsigned long espace;
-    int type, id, res;
+    int type = (-1);
+    int id, res;
 
     cout << endl;
     cout << "Entrez une commande: " << endl;
@@ -138,8 +149,9 @@ void user::lecture_commande()
                 type = RESSOURCE;
             else
                 cout << "Les types de médias sont: 'livre' 'revue' 'vhs' 'cd' 'dvd' 'ressource'" << endl;
-
-            add(type); //ajout
+            if (type != (-1))
+                add(type); //ajout
+            type = (-1);
         }
 
         else if (!cmd.compare("BYE"))
@@ -147,10 +159,21 @@ void user::lecture_commande()
 
 
         else if (!cmd.compare("LOAD"))
-            load(arg);
+        {
+            if (load(arg))
+                cout << "Chargement de la médiathèque depuis " << arg << " réussi" << endl;
+            else
+                cout << "Chargement non effectué" << endl;
+        }
 
         else if (!cmd.compare("SAVE"))
-            save(arg);
+        {
+            if (save(arg))
+                cout << "Sauvegarde de la médiathèque vers " << arg << " réussie" << endl;
+            else
+                cout << "Sauvegarde non effectuée" << endl;
+        }
+
 
         else if (!cmd.compare("SEARCH"))
         {
@@ -187,17 +210,7 @@ void user::lecture_commande()
 
         else if (!cmd.compare("HELP"))
         {
-            cout << "--- Liste des commandes ---" << endl << endl
-                 << "BYE" << endl
-                 << "ADD type" << endl
-                 << "LOAD filename" << endl
-                 << "SAVE filename" << endl
-                 << "SEARCH saisie" << endl
-                 << "CLEAR" << endl
-                 << "LIST" << endl
-                 << "SHOW id" << endl
-                 << "DELETE id" << endl
-                 << "RESET" << endl;
+            help();
         }
         else
         {
