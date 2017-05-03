@@ -2,6 +2,9 @@
 #define DEF_USER
 
 #include "mediatheque.hpp"
+#define EMPRUNTER 0
+#define RESERVER 1
+#define RENDRE 2
 
 class user
 {
@@ -25,6 +28,7 @@ public:
     int search(std::string saisie);
     void clear();
     virtual void help();
+    bool transaction(int id, int trans); //emprunter, reserver, rendre
 
     // methodes accessibles admin
     virtual void add(int type);

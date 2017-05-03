@@ -46,88 +46,6 @@ int mediatheque::search_media_bib(string saisie, vector<media*> stock_recherche)
     return counter;
 }
 
-void mediatheque::search_media()
-{
-	int counter = 0;
-	string mot;
-	vector<string> buffer;
-	string flag;
-
-	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
-	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-    getline(cin, mot);
-	buffer.push_back(mot);
-	cout << "Les médias correspondant sont:" << endl;
-	
-		for (int i = 0; i < m_biblio.size(); i++)
-		{
-			if(m_biblio[i]->search(mot))
-			{
-				affiche(i);
-				cout << endl << endl;
-				stock_recherche.push_back(m_biblio[i]);
-				counter++;
-			}
-		}
-
-		cout << "Voulez incrémenter la recherche ? (oui, non)." << endl;
-        getline(cin, flag);
-        if (flag.compare("oui")==0)
-			search_media(stock_recherche, buffer);
-		else if (flag.compare("non")==0)
-		{
-			cout << "FIN de la recherche, le nombre de médias contenant le mot clé '" << mot <<"' est: " << counter << endl;
-			stock_recherche.clear();
-		}
-
-}
-
-void mediatheque::search_media(vector<media*> biblio, vector<string> buffer)
-{
-	int counter = 0;
-	string mot;
-	string flag;
-	std::vector<media*> stock_recherches;
-
-
-	cout << "Vous êtes en mode recherche d'un média dans la bibliothèque" << endl;
-	cout << "Entrez un titre, un auteur, une collection, etc. qui correspond au média recherché" << endl;
-    getline(cin, mot);
-	buffer.push_back(mot);
-	cout << "Les médias correspondant sont:" << endl;
-	
-		for (int i = 0; i < biblio.size(); i++)
-		{
-			if(biblio[i]->search(mot))
-			{
-				stock_recherches.push_back(biblio[i]);
-				counter++;
-			}
-		}
-
-		for (int j = 0; j < stock_recherches.size(); j++)
-		{
-			cout << endl;
-			stock_recherches[j] -> affiche();
-			cout << endl;
-		}
-
-		cout << "Voulez incrémenter la recherche ? (oui, non)." << endl;
-        getline(cin, flag);
-		if (flag.compare("oui")==0)
-			search_media(stock_recherches, buffer);
-		else if (flag.compare("non")==0)
-		{
-			cout << "FIN de la recherche, le nombre de médias contenant le mot clé ";
-			for (int k = 0; k < buffer.size(); k++)
-			{
-				cout << "'" << buffer[k] << "', ";
-			}
-			cout << " est: " << counter << endl;
-			stock_recherches.clear();
-		}
-}
-
 
 bool mediatheque::load_from_file(string filename)
 {
@@ -282,21 +200,19 @@ void mediatheque::suppr(int indice)
 	m_biblio.erase(m_biblio.begin() + indice);
 }
 
-int mediatheque::emprunter(int indice)
+bool mediatheque::emprunter(int indice, int client)
 {
-	int dispo = m_biblio[indice]->get_dispo();
-	if (dispo == DISPONIBLE)
-	{
-		m_biblio[indice]->set_dispo(EMPRUNTE);
-		return 1;
-	}
-	else
-		return 0;
+	return m_biblio[indice]->emprunter(client);
 }
 
-void mediatheque::rendre(int indice)
+bool mediatheque::reserver(int indice, int client)
 {
-	m_biblio[indice]->set_dispo(DISPONIBLE);
+	return m_biblio[indice]->reserver(client);
+}
+
+bool mediatheque::rendre(int indice, int client)
+{
+	return m_biblio[indice]->rendre(client);
 }
 
 void mediatheque::reset()
