@@ -91,16 +91,6 @@ void media::affiche_short()
 		 << " | " << dispos[m_dispo] << endl;
 }
 
-int media::get_dispo()
-{
-	return m_dispo;
-}
-
-void media::set_dispo(int dispo)
-{
-	m_dispo = dispo;
-}
-
 void media::save_media(ofstream* file)
 {
     *file << m_auteur << endl;

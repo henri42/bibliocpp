@@ -31,7 +31,6 @@ public :
 	void affiche_short(); //affiche les elements de la mediathèque de facon condensée
 
 	void ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles);
-
 	void ajout(int type);
 
 	void suppr(int indice);
@@ -46,7 +45,6 @@ public :
     bool save_to_file(std::string filename);
 
     void reset();
-	void clear();
 
 };
 

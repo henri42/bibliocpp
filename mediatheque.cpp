@@ -219,8 +219,3 @@ void mediatheque::reset()
 {
 	m_biblio.clear();
 }
-
-void mediatheque::clear()
-{
-    //
-}

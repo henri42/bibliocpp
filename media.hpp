@@ -35,8 +35,6 @@ public:
 
 	virtual void affiche();
 	void affiche_short();
-	int get_dispo();
-	void set_dispo(int dispo);
 
 	bool reserver(int id_client);
 	bool rendre(int id_client);
