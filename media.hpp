@@ -25,6 +25,7 @@ protected:
 	std::string m_nom;
 	int m_type;
 	int m_dispo;
+	int m_id_client; //champ rempli si reservation ou emprunt
 
 public:
 	media();
@@ -34,8 +35,10 @@ public:
 
 	virtual void affiche();
 	void affiche_short();
-	int get_dispo();
-	void set_dispo(int dispo);
+
+	bool reserver(int id_client);
+	bool rendre(int id_client);
+	bool emprunter(int id_client);
 
 	virtual void save_media(std::ofstream* file);
 	virtual bool search(std::string buffer);

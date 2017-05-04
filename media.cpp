@@ -36,6 +36,46 @@ media::~media()
 	
 }
 
+bool media::reserver(int id_client)
+{
+	if (m_dispo == DISPONIBLE)
+	{
+		m_id_client = id_client;
+		m_dispo = RESERVE;
+		return true;
+	}
+	else
+		return false;
+}
+
+bool media::rendre(int id_client)
+{
+	if (m_dispo == EMPRUNTE && m_id_client == id_client )
+	{
+		m_dispo = DISPONIBLE;
+		return true;
+	}
+	else
+		return false;
+}
+
+bool media::emprunter(int id_client)
+{
+	if (m_dispo == DISPONIBLE)
+	{
+		m_dispo = EMPRUNTE;
+		m_id_client = id_client;
+		return true;
+	}
+	else if (m_id_client == id_client && m_dispo == RESERVE)
+	{
+		m_dispo = EMPRUNTE;
+		return true;
+	}
+	else
+		return false;
+}
+
 void media::affiche()
 {
 	cout << "Auteur: " << m_auteur << endl;
@@ -49,16 +89,6 @@ void media::affiche_short()
 	cout << " | " << m_nom
 		 << " | " << types[m_type]
 		 << " | " << dispos[m_dispo] << endl;
-}
-
-int media::get_dispo()
-{
-	return m_dispo;
-}
-
-void media::set_dispo(int dispo)
-{
-	m_dispo = dispo;
 }
 
 void media::save_media(ofstream* file)

@@ -74,7 +74,22 @@ void user::help()
          << "SEARCH saisie" << endl
          << "CLEAR" << endl
          << "LIST" << endl
-         << "SHOW id" << endl;
+         << "SHOW id" << endl
+         << "EMPRUNTER id" << endl
+         << "RENDRE id" << endl
+         << "RESERVER id" << endl;
+}
+
+bool user::transaction(int id, int trans)
+{
+   if (trans == EMPRUNTER)
+       return m_mediatheque->emprunter(id, m_id_user);
+   else if (trans == RESERVER)
+       return m_mediatheque->reserver(id, m_id_user);
+   else if (trans == RENDRE)
+       return m_mediatheque->rendre(id, m_id_user);
+   else
+       return false;
 }
 
 void user::add(int type)
@@ -206,6 +221,33 @@ void user::lecture_commande()
         {
             cout << "Réinitialisation de la médiathèque" << endl;
             reset();
+        }
+
+        else if (!cmd.compare("EMPRUNTER"))
+        {
+            id = stoi(arg);
+            if (transaction(id, EMPRUNTER))
+                cout << "Emprunt effectué" << endl;
+            else
+                cout << "Vous ne pouvez pas emprunter ce media" << endl;
+        }
+
+        else if (!cmd.compare("RESERVER"))
+        {
+            id = stoi(arg);
+            if (transaction(id, RESERVER))
+                cout << "Reservation effectuée" << endl;
+            else
+                cout << "Vous ne pouvez pas reserver ce media" << endl;
+        }
+
+        else if (!cmd.compare("RENDRE"))
+        {
+            id = stoi(arg);
+            if (transaction(id, RENDRE))
+                cout << "Media rendu" << endl;
+            else
+                cout << "Erreur le media est disponible ou vous n'êtes pas le locataire" << endl;
         }
 
         else if (!cmd.compare("HELP"))
