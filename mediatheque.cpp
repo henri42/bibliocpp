@@ -52,14 +52,14 @@ bool mediatheque::load_from_file(string filename)
 	string buffer;
 	vector<string> donnees;
 	vector<string> articles;
-	int i;
 	int type;
 	int flag = 0; //flag pour load articles
-
 	ifstream infile;
 
 	infile.open(filename.c_str());
+
 	m_biblio.clear();
+
 	if (infile.is_open())
 	{
 		while (!infile.eof())
