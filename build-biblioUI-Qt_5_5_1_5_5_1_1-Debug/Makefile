@@ -49,9 +49,13 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../biblioUI/main.cpp \
-		../biblioUI/mainwin.cpp 
+		../biblioUI/mainwin.cpp \
+		../biblioUI/logmenu.cpp \
+		../biblioUI/adminmenu.cpp 
 OBJECTS       = main.o \
-		mainwin.o
+		mainwin.o \
+		logmenu.o \
+		adminmenu.o
 DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/qdevice.pri \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/device_config.prf \
@@ -172,6 +176,7 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf \
+		../biblioUI/.qmake.stash \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
@@ -193,8 +198,12 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exceptions.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/yacc.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/lex.prf \
-		../biblioUI/biblioUI.pro ../biblioUI/mainwin.h ../biblioUI/main.cpp \
-		../biblioUI/mainwin.cpp
+		../biblioUI/biblioUI.pro ../biblioUI/mainwin.h \
+		../biblioUI/adminmenu.h \
+		../biblioUI/logmenu.h ../biblioUI/main.cpp \
+		../biblioUI/mainwin.cpp \
+		../biblioUI/logmenu.cpp \
+		../biblioUI/adminmenu.cpp
 QMAKE_TARGET  = biblioUI
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = biblioUI.app/Contents/MacOS/biblioUI
@@ -356,6 +365,7 @@ Makefile: ../biblioUI/biblioUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
@@ -502,6 +512,7 @@ Makefile: ../biblioUI/biblioUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf:
@@ -556,8 +567,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../biblioUI/mainwin.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../biblioUI/main.cpp ../biblioUI/mainwin.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../biblioUI/mainwin.h ../biblioUI/adminmenu.h ../biblioUI/logmenu.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../biblioUI/main.cpp ../biblioUI/mainwin.cpp ../biblioUI/logmenu.cpp ../biblioUI/adminmenu.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -609,7 +620,8 @@ main.o: ../biblioUI/main.cpp /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.fram
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		../biblioUI/adminmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../biblioUI/main.cpp
 
 mainwin.o: ../biblioUI/mainwin.cpp ../biblioUI/mainwin.h \
@@ -622,6 +634,28 @@ mainwin.o: ../biblioUI/mainwin.cpp ../biblioUI/mainwin.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwin.o ../biblioUI/mainwin.cpp
+
+logmenu.o: ../biblioUI/logmenu.cpp ../biblioUI/logmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logmenu.o ../biblioUI/logmenu.cpp
+
+adminmenu.o: ../biblioUI/adminmenu.cpp ../biblioUI/adminmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminmenu.o ../biblioUI/adminmenu.cpp
 
 ####### Install
 

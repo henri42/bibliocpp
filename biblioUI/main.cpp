@@ -1,13 +1,15 @@
 #include <QApplication>
 #include <QPushButton>
+#include <QBoxLayout>
 #include "mainwin.h"
+#include "adminmenu.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    mainWin test;
+    adminmenu test;
 
     test.show();
 
