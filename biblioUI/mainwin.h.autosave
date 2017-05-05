@@ -32,6 +32,9 @@ private:
 public:
     mainWin();
     ~mainWin();
+    
+    void showAdminMenu();
+    void hideAdminMenu();
 
 
 };
