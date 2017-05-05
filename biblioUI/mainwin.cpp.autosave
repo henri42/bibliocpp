@@ -43,7 +43,16 @@ mainWin::~mainWin()
     delete login;
 }
 
+<<<<<<< HEAD
 void mainWin::showAdminMenu()
 {
     
+=======
+void mainWin::showLogPage()
+{
+    username->show();
+    password->show();
+    login->show();
+    logout->show();
+>>>>>>> fcfe15793f92d6597459fce50540a943b742321d
 }

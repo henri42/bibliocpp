@@ -32,8 +32,11 @@ private:
 public:
     mainWin();
     ~mainWin();
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fcfe15793f92d6597459fce50540a943b742321d
 };
 
 
