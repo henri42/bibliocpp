@@ -1,6 +1,5 @@
 #include "logmenu.h"
 
-<<<<<<< HEAD
 logMenu::logMenu() : QWidget()
 {
     setFixedSize(800,600);
@@ -17,5 +16,3 @@ logMenu::logMenu() : QWidget()
     login->move(400-login->width()/2,username->y()+60);
     logout->move(800 - logout->width(),0);
 }
-=======
->>>>>>> 79ac884edee2ac9190518b82ec2ad54d63a9a332
