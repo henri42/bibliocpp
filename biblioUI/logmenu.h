@@ -14,8 +14,10 @@ private:
 
     QLineEdit* username;
     QLineEdit* password;
-public:
 
+public:
+    logMenu();
+    ~logMenu();
 
 signals:
 

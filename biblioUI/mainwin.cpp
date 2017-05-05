@@ -26,9 +26,7 @@ mainWin::mainWin() : QWidget()
     password->setPlaceholderText("Mot de passe");
     password->setEchoMode(QLineEdit::Password);
 
-    username->move(400-username->width()/2,260);
-    password->move(username->x(),username->y()+30);
-    login->move(400-login->width()/2,username->y()+60);
+
 
     QObject::connect(add,SIGNAL(clicked()),login,SLOT(hide()));
     QObject::connect(del,SIGNAL(clicked()),login,SLOT(show()));
@@ -42,3 +40,4 @@ mainWin::~mainWin()
     delete password;
     delete login;
 }
+

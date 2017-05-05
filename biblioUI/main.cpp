@@ -1,13 +1,14 @@
 #include <QApplication>
 #include <QPushButton>
 #include "mainwin.h"
+#include "logmenu.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    mainWin test;
+    logMenu test;
 
     test.show();
 
