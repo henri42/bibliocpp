@@ -32,7 +32,6 @@ private:
 public:
     mainWin();
     ~mainWin();
-
 };
 
 

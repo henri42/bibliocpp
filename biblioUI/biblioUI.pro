@@ -2,7 +2,9 @@ QT += widgets
 
 SOURCES += \
     main.cpp \
-    mainwin.cpp
+    mainwin.cpp \
+    logmenu.cpp
 
 HEADERS += \
-    mainwin.h
+    mainwin.h \
+    logmenu.h
