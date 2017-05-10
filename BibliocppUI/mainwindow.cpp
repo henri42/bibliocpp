@@ -36,7 +36,7 @@ void mainWindow::connexion()
     else
     {
         QMessageBox::warning(this,"Login", "Username and password is not correct, Client connexion");
-        m_clientmenu->show();
+        m_liste->show();
         m_logmenu->hide();
     }
 }
