@@ -8,7 +8,7 @@
 
 class adminMenu : public QWidget
 {
-private:
+public:
     QPushButton* list;
     QPushButton* reset;
     QPushButton* load;
@@ -16,6 +16,7 @@ private:
     QPushButton* add;
     QPushButton* del;
     QPushButton* logout;
+    QPushButton* help;
 
     QLineEdit* search;
 public:

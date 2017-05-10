@@ -4,7 +4,9 @@
 #include<QApplication>
 #include <QWidget>
 #include <QLineEdit>
+#include <QLabel>
 #include <QPushButton>
+#include <QMessageBox>
 
 class logMenu : public QWidget
 {
@@ -14,6 +16,12 @@ public:
 
     QLineEdit* username;
     QLineEdit* password;
+
+    QLabel* names;
+    QLabel* title;
+
+    QString text_username;
+    QString text_password;
 
 public:
     logMenu(QWidget* conteneur);
