@@ -5,14 +5,10 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QBoxLayout>
-#include <QGridLayout>
 
 class adminMenu : public QWidget
 {
 private:
-    QGridLayout *layout;
-
     QPushButton* list;
     QPushButton* reset;
     QPushButton* load;
@@ -23,6 +19,12 @@ private:
     QLineEdit* search;
 public:
     adminMenu();
+    ~adminMenu();
+
+signals:
+
+public slots:
+
 };
 
 #endif // ADMINMENU_H

@@ -49,9 +49,11 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../BibliocppUI/main.cpp \
-		../BibliocppUI/adminmenu.cpp 
+		../BibliocppUI/adminmenu.cpp \
+		../BibliocppUI/logmenu.cpp 
 OBJECTS       = main.o \
-		adminmenu.o
+		adminmenu.o \
+		logmenu.o
 DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/qdevice.pri \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/device_config.prf \
@@ -194,8 +196,10 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exceptions.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/yacc.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/lex.prf \
-		../BibliocppUI/BibliocppUI.pro ../BibliocppUI/adminmenu.h ../BibliocppUI/main.cpp \
-		../BibliocppUI/adminmenu.cpp
+		../BibliocppUI/BibliocppUI.pro ../BibliocppUI/adminmenu.h \
+		../BibliocppUI/logmenu.h ../BibliocppUI/main.cpp \
+		../BibliocppUI/adminmenu.cpp \
+		../BibliocppUI/logmenu.cpp
 QMAKE_TARGET  = BibliocppUI
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = BibliocppUI.app/Contents/MacOS/BibliocppUI
@@ -559,8 +563,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h ../BibliocppUI/logmenu.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp ../BibliocppUI/logmenu.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -614,7 +618,10 @@ main.o: ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QBoxLayout \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../BibliocppUI/logmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../BibliocppUI/main.cpp
 
 adminmenu.o: ../BibliocppUI/adminmenu.cpp ../BibliocppUI/adminmenu.h \
@@ -627,8 +634,21 @@ adminmenu.o: ../BibliocppUI/adminmenu.cpp ../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QBoxLayout \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QGridLayout \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminmenu.o ../BibliocppUI/adminmenu.cpp
+
+logmenu.o: ../BibliocppUI/logmenu.cpp ../BibliocppUI/logmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logmenu.o ../BibliocppUI/logmenu.cpp
 
 ####### Install
 
