@@ -11,7 +11,7 @@ vueListe::vueListe(QWidget* parent) : QWidget(parent)
     m_liste_item->move(100,100);
 
     m_liste_item->addItem("salut");
-    m_liste_item->item(0)->setIcon(QIcon("/Users/Sophie/bibliocpp/build-BibliocppUI-Desktop_Qt_5_8_0_clang_64bit-Debug/livre.png"));
+    m_liste_item->item(0)->setIcon(QIcon("livre.png"));
     m_liste_item->addItem("cava");
 
     vector<string> a = { "je" , "vais" , "ici" };
