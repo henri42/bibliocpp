@@ -30,7 +30,7 @@ logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
     login->move(400-login->width()/2,username->y()+60);
     logout->move(800-logout->width()-5,5);
     names->move(5,580);
-    title->move(700,580);
+    title->move(695,580);
     bibliozer->move(205,100);
 
     //autre

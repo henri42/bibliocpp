@@ -14,3 +14,6 @@ HEADERS += \
     mainwindow.h \
     vueliste.h \
     clientmenu.h
+
+DISTFILES += \
+    ../build_bibliozer/livre.png
