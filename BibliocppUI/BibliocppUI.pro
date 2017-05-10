@@ -1,4 +1,8 @@
 QT += widgets
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    adminmenu.cpp
+
+HEADERS += \
+    adminmenu.h
