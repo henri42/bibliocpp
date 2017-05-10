@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QWidget>
+#include <QMessageBox>
 #include "adminmenu.h"
 #include "logmenu.h"
 #include "vueliste.h"
@@ -24,6 +25,7 @@ public:
 
 public slots:
     void connexion();
+    void help();
 };
 
 #endif // MAINWINDOW_H

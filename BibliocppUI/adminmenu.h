@@ -24,6 +24,8 @@ public:
     QLabel* names;
     QLabel* title;
     QLabel* bibliozer;
+
+    QString text_search;
 public:
     adminMenu(QWidget* conteneur);
     ~adminMenu();

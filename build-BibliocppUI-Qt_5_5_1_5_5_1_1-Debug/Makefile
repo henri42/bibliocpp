@@ -181,6 +181,7 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf \
+		../BibliocppUI/.qmake.stash \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
@@ -373,6 +374,7 @@ Makefile: ../BibliocppUI/BibliocppUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspec
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
@@ -519,6 +521,7 @@ Makefile: ../BibliocppUI/BibliocppUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspec
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/qt_config.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++/qmake.conf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exclusive_builds.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_pre.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf:
@@ -612,9 +615,9 @@ moc_mainwindow.cpp: /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Hea
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h \
+		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/vueliste.h \
@@ -650,9 +653,9 @@ main.o: ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h \
+		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/mainwindow.h \
@@ -673,7 +676,9 @@ adminmenu.o: ../BibliocppUI/adminmenu.cpp ../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminmenu.o ../BibliocppUI/adminmenu.cpp
 
 logmenu.o: ../BibliocppUI/logmenu.cpp ../BibliocppUI/logmenu.h \
@@ -701,9 +706,9 @@ mainwindow.o: ../BibliocppUI/mainwindow.cpp ../BibliocppUI/mainwindow.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h \
+		../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/vueliste.h \
@@ -733,7 +738,9 @@ clientmenu.o: ../BibliocppUI/clientmenu.cpp ../BibliocppUI/clientmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clientmenu.o ../BibliocppUI/clientmenu.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
