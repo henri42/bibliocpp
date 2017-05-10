@@ -197,6 +197,7 @@ void mediatheque::ajout(int type)
 
 void mediatheque::suppr(int indice)
 {
+    delete m_biblio[indice];
 	m_biblio.erase(m_biblio.begin() + indice);
 }
 
