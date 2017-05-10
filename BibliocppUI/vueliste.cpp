@@ -14,8 +14,8 @@ vueListe::vueListe(QWidget* parent) : QWidget(parent)
     m_liste_item->item(0)->setIcon(QIcon("livre.png"));
     m_liste_item->addItem("cava");
 
-    vector<string> a = { "je" , "vais" , "ici" };
-    loadListe(a);
+   // vector<string> a = { "je" , "vais" , "ici" };
+   // loadListe(a);
 
 
 }

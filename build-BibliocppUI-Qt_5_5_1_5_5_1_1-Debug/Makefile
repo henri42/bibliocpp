@@ -61,7 +61,8 @@ OBJECTS       = main.o \
 		vueliste.o \
 		clientmenu.o \
 		moc_mainwindow.o
-DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
+DIST          = ../build_bibliozer/livre.png \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/qdevice.pri \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/device_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/common/unix.conf \
@@ -608,6 +609,8 @@ compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
@@ -618,8 +621,6 @@ moc_mainwindow.cpp: /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Hea
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h \
 		../BibliocppUI/logmenu.h \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/vueliste.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QListWidget \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlistwidget.h \
@@ -699,6 +700,8 @@ logmenu.o: ../BibliocppUI/logmenu.cpp ../BibliocppUI/logmenu.h \
 mainwindow.o: ../BibliocppUI/mainwindow.cpp ../BibliocppUI/mainwindow.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
@@ -709,8 +712,6 @@ mainwindow.o: ../BibliocppUI/mainwindow.cpp ../BibliocppUI/mainwindow.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h \
 		../BibliocppUI/logmenu.h \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/vueliste.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QListWidget \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlistwidget.h \
