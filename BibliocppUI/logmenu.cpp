@@ -2,7 +2,7 @@
 #define LARGEUR_BTN 100
 #define HAUTEUR_BTN 20
 
-logMenu::logMenu() : QWidget()
+logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
 {
     setFixedSize(800,600);
 

@@ -1,5 +1,6 @@
 #include "adminmenu.h"
 #include "logmenu.h"
+#include "mainwindow.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -23,11 +24,14 @@ int main(int argc, char *argv[])
         // Affichage de la fenêtre
         //fenetre.show();
 
-        logMenu testLM;
-        testLM.show();
+        //logMenu testLM;
+        //testLM.show();
 
-        adminMenu test;
-        test.show();
+        //adminMenu test;
+        //test.show();
+
+        mainWindow testMW;
+        testMW.show();
 
         return app.exec();
 }
