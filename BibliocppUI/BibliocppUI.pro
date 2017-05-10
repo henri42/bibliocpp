@@ -3,8 +3,10 @@ QT += widgets
 SOURCES += \
     main.cpp \
     adminmenu.cpp \
-    logmenu.cpp
+    logmenu.cpp \
+    mainwindow.cpp
 
 HEADERS += \
     adminmenu.h \
-    logmenu.h
+    logmenu.h \
+    mainwindow.h

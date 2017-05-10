@@ -16,7 +16,7 @@ private:
     QLineEdit* password;
 
 public:
-    logMenu();
+    logMenu(QWidget* conteneur);
     ~logMenu();
 
 signals:
