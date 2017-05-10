@@ -15,10 +15,11 @@ private:
     QPushButton* save;
     QPushButton* add;
     QPushButton* del;
+    QPushButton* logout;
 
     QLineEdit* search;
 public:
-    adminMenu();
+    adminMenu(QWidget* conteneur);
     ~adminMenu();
 
 signals:

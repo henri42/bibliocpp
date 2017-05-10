@@ -2,7 +2,7 @@
 #define LARGEUR_BTN 100
 #define HAUTEUR_BTN 20
 
-adminMenu::adminMenu() : QWidget()
+adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
 {
     setFixedSize(800,600);
     setWindowTitle("Bibliozer");
@@ -16,6 +16,7 @@ adminMenu::adminMenu() : QWidget()
     load = new QPushButton("Charger",this);
     save = new QPushButton("Sauvegarder",this);
     list = new QPushButton("Parcourir",this);
+    logout = new QPushButton("Deconnexion",this);
 
     search = new QLineEdit(this);
 
@@ -27,6 +28,7 @@ adminMenu::adminMenu() : QWidget()
     save->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     list->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     search->setFixedSize(5*LARGEUR_BTN+50,HAUTEUR_BTN);
+    logout->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
 
 
     //positions
@@ -36,6 +38,7 @@ adminMenu::adminMenu() : QWidget()
     save->move(400-save->width()/2,search->y()+60);
     add->move(512-add->width()/2,search->y()+60);
     del->move(625-del->width()/2,search->y()+60);
+    logout->move(800-logout->width()-5,5);
 
 
     //autre
