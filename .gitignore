@@ -44,11 +44,7 @@ save_search.txt
 .idea
 *.pdf
 bibliotheque
-build-biblioUI-Desktop_Qt_5_8_0_clang_64bit-Debug
 
 BibliocppUI/BibliocppUI.pro.user.ae490fd
 BibliothequeUI/BibliothequeUI.pro.user.ae490fd
-build-BibliocppUI-Desktop_Qt_5_8_0_clang_64bit-Debug/
-
-build-BibliocppUI-Qt_5_5_1_5_5_1_1-Debug/BibliocppUI.app/Contents/MacOS/BibliocppUI
-build-BibliocppUI-Qt_5_5_1_5_5_1_1-Debug/Makefile
+build*

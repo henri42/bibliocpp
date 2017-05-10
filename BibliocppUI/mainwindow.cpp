@@ -6,9 +6,12 @@ mainWindow::mainWindow() : QWidget()
 
     m_logmenu = new logMenu(this);
     m_adminmenu = new adminMenu(this);
+    m_liste = new vueListe(this);
     m_clientmenu = new clientMenu(this);
+
     m_adminmenu->hide();
     m_clientmenu->hide();
+    m_liste->hide();
 
     QObject::connect(m_logmenu->login, SIGNAL(clicked()), this, SLOT(connexion()));
 
