@@ -51,11 +51,14 @@ OBJECTS_DIR   = ./
 SOURCES       = ../BibliocppUI/main.cpp \
 		../BibliocppUI/adminmenu.cpp \
 		../BibliocppUI/logmenu.cpp \
-		../BibliocppUI/mainwindow.cpp 
+		../BibliocppUI/mainwindow.cpp \
+		../BibliocppUI/clientmenu.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		adminmenu.o \
 		logmenu.o \
-		mainwindow.o
+		mainwindow.o \
+		clientmenu.o \
+		moc_mainwindow.o
 DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/qdevice.pri \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/device_config.prf \
@@ -200,10 +203,12 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/lex.prf \
 		../BibliocppUI/BibliocppUI.pro ../BibliocppUI/adminmenu.h \
 		../BibliocppUI/logmenu.h \
-		../BibliocppUI/mainwindow.h ../BibliocppUI/main.cpp \
+		../BibliocppUI/mainwindow.h \
+		../BibliocppUI/clientmenu.h ../BibliocppUI/main.cpp \
 		../BibliocppUI/adminmenu.cpp \
 		../BibliocppUI/logmenu.cpp \
-		../BibliocppUI/mainwindow.cpp
+		../BibliocppUI/mainwindow.cpp \
+		../BibliocppUI/clientmenu.cpp
 QMAKE_TARGET  = BibliocppUI
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = BibliocppUI.app/Contents/MacOS/BibliocppUI
@@ -567,8 +572,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h ../BibliocppUI/logmenu.h ../BibliocppUI/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp ../BibliocppUI/logmenu.cpp ../BibliocppUI/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h ../BibliocppUI/logmenu.h ../BibliocppUI/mainwindow.h ../BibliocppUI/clientmenu.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp ../BibliocppUI/logmenu.cpp ../BibliocppUI/mainwindow.cpp ../BibliocppUI/clientmenu.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -594,8 +599,25 @@ compiler_objective_c_make_all:
 compiler_objective_c_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_mainwindow.cpp
+moc_mainwindow.cpp: /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		../BibliocppUI/adminmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		../BibliocppUI/logmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../BibliocppUI/clientmenu.h \
+		../BibliocppUI/mainwindow.h
+	/usr/local/Cellar/qt@5.5/5.5.1_1/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++ -I/Users/igor/bibliocpp/BibliocppUI -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/c++/4.2.1 -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/c++/4.2.1/backward -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include -F/usr/local/Cellar/qt@5.5/5.5.1_1/lib ../BibliocppUI/mainwindow.h -o moc_mainwindow.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all:
@@ -608,7 +630,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: 
+compiler_clean: compiler_moc_header_clean 
 
 ####### Compile
 
@@ -622,7 +644,10 @@ main.o: ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		../BibliocppUI/logmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../BibliocppUI/mainwindow.h \
+		../BibliocppUI/clientmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QBoxLayout \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../BibliocppUI/main.cpp
@@ -646,7 +671,9 @@ logmenu.o: ../BibliocppUI/logmenu.cpp ../BibliocppUI/logmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logmenu.o ../BibliocppUI/logmenu.cpp
 
 mainwindow.o: ../BibliocppUI/mainwindow.cpp ../BibliocppUI/mainwindow.h \
@@ -659,8 +686,25 @@ mainwindow.o: ../BibliocppUI/mainwindow.cpp ../BibliocppUI/mainwindow.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
-		../BibliocppUI/logmenu.h
+		../BibliocppUI/logmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QMessageBox \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../BibliocppUI/clientmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../BibliocppUI/mainwindow.cpp
+
+clientmenu.o: ../BibliocppUI/clientmenu.cpp ../BibliocppUI/clientmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clientmenu.o ../BibliocppUI/clientmenu.cpp
+
+moc_mainwindow.o: moc_mainwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 ####### Install
 

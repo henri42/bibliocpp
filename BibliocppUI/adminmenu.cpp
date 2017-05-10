@@ -7,9 +7,6 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     setFixedSize(800,600);
     setWindowTitle("Bibliozer");
 
-    QWidget *fenetre = new QWidget;
-    fenetre->setFixedSize(300, 150);
-
     //construction des widgets
     add = new QPushButton("Ajouter",this);
     del = new QPushButton("Supprimer",this);
@@ -17,6 +14,8 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     save = new QPushButton("Sauvegarder",this);
     list = new QPushButton("Parcourir",this);
     logout = new QPushButton("Deconnexion",this);
+    help = new QPushButton("?",this);
+
 
     search = new QLineEdit(this);
 
@@ -29,6 +28,7 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     list->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     search->setFixedSize(5*LARGEUR_BTN+50,HAUTEUR_BTN);
     logout->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
+    help->setFixedSize(HAUTEUR_BTN,HAUTEUR_BTN);
 
 
     //positions
@@ -39,6 +39,7 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     add->move(512-add->width()/2,search->y()+60);
     del->move(625-del->width()/2,search->y()+60);
     logout->move(800-logout->width()-5,5);
+    help->move(0+help->width()-5,5);
 
 
     //autre
