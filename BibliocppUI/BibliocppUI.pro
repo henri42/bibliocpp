@@ -5,12 +5,12 @@ SOURCES += \
     adminmenu.cpp \
     logmenu.cpp \
     mainwindow.cpp \
-    vueliste.cpp
+    vueliste.cpp \
     clientmenu.cpp
 
 HEADERS += \
     adminmenu.h \
     logmenu.h \
     mainwindow.h \
-    vueliste.h
+    vueliste.h \
     clientmenu.h
