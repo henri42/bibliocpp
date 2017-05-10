@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QLabel>
 
 class adminMenu : public QWidget
 {
@@ -19,6 +20,10 @@ public:
     QPushButton* help;
 
     QLineEdit* search;
+
+    QLabel* names;
+    QLabel* title;
+    QLabel* bibliozer;
 public:
     adminMenu(QWidget* conteneur);
     ~adminMenu();
