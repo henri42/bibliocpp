@@ -2,15 +2,7 @@
 #include "ui_adminmenu.h"
 
 adminMenu::adminMenu(QWidget *parent) :
-    QWidget(parent)
-{
-    // Create and position the button
-    m_button = new QPushButton("Hello World", this);
-    m_button->setGeometry(10, 10, 80, 30);
-    m_button->setCheckable(true);
-
-    connect(m_button, SIGNAL (clicked(bool)), this, SLOT (slotButtonClicked(bool)));
-},
+    QDialog(parent),
     ui(new Ui::adminMenu)
 {
     ui->setupUi(this);
@@ -21,11 +13,14 @@ adminMenu::~adminMenu()
     delete ui;
 }
 
-
-void adminMenu::slotButtonClicked(bool checked)
+void adminMenu::on_pushButton_clicked()
 {
-    if (checked)
-        m_button->setText("Checked");
-    else
-        m_button->setText("Hello World");
+    hide();
+    fenetre3 = new list(this);
+    fenetre3->show();
+}
+
+void adminMenu::on_lineEdit_textChanged(const QString &arg1)
+{
+
 }

@@ -14,10 +14,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+
 void MainWindow::on_pushButton_clicked()
 {
     hide();
     fenetre2 = new adminMenu(this);
     fenetre2->show();
-
 }

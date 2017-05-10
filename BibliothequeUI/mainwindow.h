@@ -1,8 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include "adminmenu.h"
+
+#include <QMainWindow>
 
 namespace Ui {
 class MainWindow;
