@@ -1,3 +1,5 @@
+#include "adminmenu.h"
+
 #include <QApplication>
 #include <QPushButton>
 
