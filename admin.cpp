@@ -26,10 +26,7 @@ bool admin::del(int id)
         return true;
     }
     else
-    {
-        cout << "ID non présent dans la bibliothèque" << endl;
         return false;
-    }
 }
 
 bool admin::load(string filename)

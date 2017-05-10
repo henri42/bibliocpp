@@ -28,7 +28,7 @@ bool user::is_active()
 
 void user::bye()
 {
-    cout << "Fermeture de la bibliothèque" << endl;
+    m_mediatheque->reset();
     m_actif = false;
 }
 
@@ -41,7 +41,6 @@ bool user::show(int id)
     }
     else
     {
-        cout << "ID non présent dans la bibliothèque" << endl;
         return false;
     }
 }
@@ -100,7 +99,7 @@ void user::add(int type)
 bool user::del(int id)
 {
     cout << "Vous n'avez pas les droit d'administrateur" << endl;
-    return false;
+    return true;
 }
 
 bool user::load(string filename)
@@ -170,8 +169,10 @@ void user::lecture_commande()
         }
 
         else if (!cmd.compare("BYE"))
+        {
+            cout << "Fermeture de la bibliothèque" << endl;
             bye();
-
+        }
 
         else if (!cmd.compare("LOAD"))
         {
@@ -208,13 +209,15 @@ void user::lecture_commande()
         else if (!cmd.compare("SHOW"))
         {
             id = stoi(arg);
-            show(id);
+            if (!show(id))
+                cout << "ID non présent dans la bibliothèque" << endl;
         }
 
         else if (!cmd.compare("DELETE"))
         {
             id = stoi(arg);
-            del(id);
+            if(!del(id))
+                cout << "ID non présent dans la bibliothèque" << endl;
         }
 
         else if (!cmd.compare("RESET"))

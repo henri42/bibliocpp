@@ -218,5 +218,12 @@ bool mediatheque::rendre(int indice, int client)
 
 void mediatheque::reset()
 {
-	m_biblio.clear();
+    unsigned long taille = m_biblio.size();
+
+    for (int i = 0; i < taille; i++)
+    {
+        delete m_biblio[i];
+        m_biblio.pop_back();
+    }
+	//m_biblio.clear();
 }
