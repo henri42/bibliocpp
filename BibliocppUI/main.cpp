@@ -1,4 +1,5 @@
 #include "adminmenu.h"
+#include "logmenu.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -20,7 +21,10 @@ int main(int argc, char *argv[])
         bouton.setIcon(QIcon("smile.png"));
 
         // Affichage de la fenêtre
-        fenetre.show();
+        //fenetre.show();
+
+        logMenu testLM;
+        testLM.show();
 
         adminMenu test;
         test.show();

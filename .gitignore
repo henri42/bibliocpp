@@ -45,4 +45,7 @@ save_search.txt
 *.pdf
 bibliotheque
 build-biblioUI-Desktop_Qt_5_8_0_clang_64bit-Debug
-buildUI
+
+BibliocppUI/BibliocppUI.pro.user.ae490fd
+BibliothequeUI/BibliothequeUI.pro.user.ae490fd
+build-BibliocppUI-Desktop_Qt_5_8_0_clang_64bit-Debug/
