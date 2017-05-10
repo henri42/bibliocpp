@@ -48,8 +48,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../BibliocppUI/main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../BibliocppUI/main.cpp \
+		../BibliocppUI/adminmenu.cpp 
+OBJECTS       = main.o \
+		adminmenu.o
 DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/qdevice.pri \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/device_config.prf \
@@ -192,7 +194,8 @@ DIST          = /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/exceptions.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/yacc.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/lex.prf \
-		../BibliocppUI/BibliocppUI.pro  ../BibliocppUI/main.cpp
+		../BibliocppUI/BibliocppUI.pro ../BibliocppUI/adminmenu.h ../BibliocppUI/main.cpp \
+		../BibliocppUI/adminmenu.cpp
 QMAKE_TARGET  = BibliocppUI
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = BibliocppUI.app/Contents/MacOS/BibliocppUI
@@ -556,7 +559,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -600,11 +604,31 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../BibliocppUI/main.cpp /usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+main.o: ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
-		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QBoxLayout \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../BibliocppUI/main.cpp
+
+adminmenu.o: ../BibliocppUI/adminmenu.cpp ../BibliocppUI/adminmenu.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QApplication \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qapplication.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QWidget \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qwidget.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLineEdit \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QPushButton \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QBoxLayout \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qboxlayout.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminmenu.o ../BibliocppUI/adminmenu.cpp
 
 ####### Install
 

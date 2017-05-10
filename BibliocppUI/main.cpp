@@ -2,6 +2,7 @@
 
 #include <QApplication>
 #include <QPushButton>
+#include <QBoxLayout>
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,9 @@ int main(int argc, char *argv[])
 
         // Affichage de la fenêtre
         fenetre.show();
+
+        adminMenu test;
+        test.show();
 
         return app.exec();
 }
