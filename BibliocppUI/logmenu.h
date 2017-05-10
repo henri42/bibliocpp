@@ -8,7 +8,7 @@
 
 class logMenu : public QWidget
 {
-private:
+public:
     QPushButton* logout;
     QPushButton* login;
 

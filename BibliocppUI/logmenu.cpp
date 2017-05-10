@@ -29,6 +29,9 @@ logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
     password->setPlaceholderText("Mot de passe");
     password->setEchoMode(QLineEdit::Password);
 
+
+
+
 }
 
 logMenu::~logMenu()
