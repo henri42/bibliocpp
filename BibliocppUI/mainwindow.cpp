@@ -2,6 +2,8 @@
 
 mainWindow::mainWindow() : QWidget()
 {
+    setFixedSize(800,600);
+
     m_logmenu = new logMenu(this);
     m_adminmenu = new adminMenu(this);
     m_clientmenu = new clientMenu(this);
