@@ -16,7 +16,7 @@ logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
     names = new QLabel(this);
     title = new QLabel(this);
 
-
+    bibliozer = new QLabel(this);
 
 
     //tailles
@@ -30,7 +30,12 @@ logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
     login->move(400-login->width()/2,username->y()+60);
     logout->move(800-logout->width()-5,5);
     names->move(5,580);
+<<<<<<< HEAD
     title->move(695,580);
+=======
+    title->move(700,580);
+    bibliozer->move(205,100);
+>>>>>>> b415c2030cd0de21f763b4577913034b020eac3e
 
     //autre
     username->setPlaceholderText("Nom d'utilisateur");
@@ -38,6 +43,8 @@ logMenu::logMenu(QWidget* conteneur) : QWidget(conteneur)
     password->setEchoMode(QLineEdit::Password);
     names->setText("© Gouttard-Papandinas");
     title->setText("Projet C++ 2017");
+    bibliozer->setPixmap(QPixmap("bibliozer.gif").scaled(4*(bibliozer->width()),4*(bibliozer->height()),Qt::KeepAspectRatio));
+    bibliozer->show();
 
 
 }

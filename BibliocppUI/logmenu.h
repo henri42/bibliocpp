@@ -19,6 +19,7 @@ public:
 
     QLabel* names;
     QLabel* title;
+    QLabel* bibliozer;
 
     QString text_username;
     QString text_password;

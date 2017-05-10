@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QLabel>
 
 class clientMenu : public QWidget
 {
@@ -13,6 +14,10 @@ public:
     QPushButton* logout;
 
     QLineEdit* search;
+
+    QLabel* names;
+    QLabel* title;
+    QLabel* bibliozer;
 
 public:
     clientMenu(QWidget* conteneur);

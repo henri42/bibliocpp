@@ -19,6 +19,11 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
 
     search = new QLineEdit(this);
 
+    names = new QLabel(this);
+    title = new QLabel(this);
+
+    bibliozer = new QLabel(this);
+
 
     //tailles
     add->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
@@ -40,10 +45,17 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     del->move(625-del->width()/2,search->y()+60);
     logout->move(800-logout->width()-5,5);
     help->move(0+help->width()-5,5);
+    names->move(5,580);
+    title->move(700,580);
+    bibliozer->move(205,100);
 
 
     //autre
     search->setPlaceholderText("Recherche");
+    names->setText("© Gouttard-Papandinas");
+    title->setText("Projet C++ 2017");
+    bibliozer->setPixmap(QPixmap("bibliozer.gif").scaled(4*(bibliozer->width()),4*(bibliozer->height()),Qt::KeepAspectRatio));
+    bibliozer->show();
 
 }
 
