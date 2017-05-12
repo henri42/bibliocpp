@@ -16,10 +16,11 @@ protected:
 
 public:
     user();
-    user(mediatheque* new_mediatheque);
+    user(mediatheque* new_mediatheque, int id);
     ~user();
 
     bool is_active();
+    int getIdUser();
 
     // methodes accessible client
     void bye();
@@ -28,6 +29,7 @@ public:
     int search(std::string saisie);
     void clear();
     virtual void help();
+    bool reload();
     bool transaction(int id, int trans); //emprunter, reserver, rendre
 
     // methodes accessibles admin

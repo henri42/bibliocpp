@@ -7,7 +7,7 @@ using namespace std;
 admin::admin() : user()
 {}
 
-admin::admin(mediatheque* new_mediatheque) : user(new_mediatheque)
+admin::admin(mediatheque* new_mediatheque) : user(new_mediatheque, 0)
 {}
 
 admin::~admin()

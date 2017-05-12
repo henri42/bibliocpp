@@ -20,8 +20,7 @@ class ressource_num : public media
 	public :
 		// constructeurs et destructeurs
 		ressource_num();
-        ressource_num(int taille, std::string format, std::string chemin, std::string auteur, std::string nom, int dispo);
-        ressource_num(std::string taille, std:: string format, std::string chemin, std::string auteur, std::string nom);
+        ressource_num(int taille, std::string format, std::string chemin, std::string auteur, std::string nom, int dispo, int client);
 		~ressource_num();
 
         void affiche();

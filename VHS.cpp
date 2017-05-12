@@ -12,17 +12,12 @@ vhs::vhs() : media(VHS)
 	cin.ignore();
 }
 
-vhs::vhs(int duree, string maison_production, string auteur, string nom, int dispo) : media(auteur, nom, VHS, dispo)
+vhs::vhs(int duree, string maison_production, string auteur, string nom, int dispo, int client) : media(auteur, nom, VHS, dispo, client)
 {	
 	m_maison_production = maison_production;
 	m_duree = duree;
 }
 
-vhs::vhs(string duree, string maison_production, string auteur, string nom) : media(auteur, nom, VHS, DISPONIBLE)
-{	
-	m_duree = stoi(duree); //string to integer
-	m_maison_production = maison_production;
-}
 
 vhs::~vhs()
 {

@@ -19,9 +19,8 @@ protected :
 public :
 	// constructeurs et destructeurs
 	livre();
-	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
+	livre(int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo, int client);
 		//constructeur pour chargement depuis fichier texte
-	livre(std::string annee, std::string pages, std::string collection, std::string resume, std::string auteur, std::string nom);
 	~livre();
 
 	bool search(std::string buffer);

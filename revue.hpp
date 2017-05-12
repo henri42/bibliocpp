@@ -26,8 +26,7 @@ class revue : public livre
 
 		// constructeurs et destructeurs
 		revue();
-		revue(int nb_articles, std::string editeur, std::vector<std::string> liste_articles, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo);
-		revue(std::string editeur, std::vector<std::string> liste_articles, std::string annee, std::string pages, std::string collection, std::string resume, std::string auteur, std::string nom);
+		revue(std::string editeur, std::vector<std::string> liste_articles, int annee, int pages, std::string collection, std::string resume, std::string auteur, std::string nom, int dispo, int client);
 		~revue();
         void save_media(std::ofstream* file);
        	bool search(std::string buffer);
