@@ -190,6 +190,7 @@ void mediatheque::ajout(int type)
 			m_biblio.emplace_back(new livre());
 			break;
 		case REVUE :
+			m_biblio.emplace_back(new revue());
 			break;
 		case VHS :
 			m_biblio.emplace_back(new vhs());
