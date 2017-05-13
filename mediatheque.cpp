@@ -43,6 +43,12 @@ int mediatheque::search_media_bib(string saisie, vector<media*> stock_recherche)
     if (counter != 0)
         m_biblio = stock_recherche;
 
+    while (!stock_recherche.empty())
+    {
+        delete stock_recherche.back();
+        stock_recherche.pop_back();
+    }
+
     return counter;
 }
 
@@ -232,12 +238,9 @@ bool mediatheque::rendre(int indice, int client)
 
 void mediatheque::reset()
 {
-    unsigned long taille = m_biblio.size();
-
-    for (int i = 0; i < taille; i++)
+    while (!m_biblio.empty())
     {
-        delete m_biblio[i];
+        delete m_biblio.back();
         m_biblio.pop_back();
     }
-	//m_biblio.clear();
 }

@@ -62,12 +62,14 @@ int user::search(string saisie)
         m_is_saved = m_mediatheque->save_to_file("save_search.txt");
 
     return m_mediatheque->search_media_bib(saisie, result_search);
+
 }
 
 void user::clear()
 {
     if (m_is_saved)
         m_is_saved = !(m_mediatheque->load_from_file("save_search.txt"));
+
 }
 
 void user::help()
@@ -92,8 +94,6 @@ bool user::transaction(int id, int trans)
        res = m_mediatheque->reserver(id, m_id_user);
     else if (trans == RENDRE)
        res = m_mediatheque->rendre(id, m_id_user);
-    if (res)
-        m_mediatheque->save_to_file("active_bib.txt");
     return res;
 }
 

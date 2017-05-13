@@ -29,26 +29,25 @@ int main(int argc, char const *argv[]) {
 
     string pass;
     int id;
-    mediatheque *test = new mediatheque();
-    user *user1;
+    mediatheque test;
+    user* user1;
 
     //authentification
     if (auth(pass))
     {
-        user1 = new admin(test);
+        user1 = new admin(&test);
         cout << "User ID : " << user1->getIdUser() << endl;
     }
     else {
         cout << "Entrez votre ID :" << endl;
         cin >> id;
-        user1 = new user(test, id);
+        user1 = new user(&test, id);
         cin.ignore();
     }
 
 	while(user1->is_active())
 		user1->lecture_commande();
 
-    delete test;
     delete user1;
 
 	return 0;
