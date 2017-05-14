@@ -17,8 +17,7 @@ class vhs : public media
 	public :
 		// constructeurs et destructeurs
 		vhs();
-		vhs(int duree, std::string maison_production, std::string auteur, std::string nom, int dispo);
-		vhs(std::string duree, std::string maison_production, std::string auteur, std::string nom);
+		vhs(int duree, std::string maison_production, std::string auteur, std::string nom, int dispo, int client);
 		~vhs();
 
 		void affiche();

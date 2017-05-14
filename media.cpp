@@ -16,6 +16,7 @@ media::media(int type)
 {
 	m_type = type;
 	m_dispo = DISPONIBLE;
+	m_id_client = 0;
 
 	cout << "Quel est l'auteur ?" << endl;
 	getline(cin, m_auteur);
@@ -23,7 +24,7 @@ media::media(int type)
 	getline(cin, m_nom);
 }
 
-media::media(std::string auteur, std::string nom, int type, int dispo)
+media::media(std::string auteur, std::string nom, int type, int dispo, int client)
 {
 	m_auteur = auteur;
 	m_nom = nom;
@@ -53,6 +54,7 @@ bool media::rendre(int id_client)
 	if (m_dispo == EMPRUNTE && m_id_client == id_client )
 	{
 		m_dispo = DISPONIBLE;
+		m_id_client = 0;
 		return true;
 	}
 	else
@@ -95,6 +97,8 @@ void media::save_media(ofstream* file)
 {
     *file << m_auteur << endl;
     *file << m_nom << endl;
+    *file << m_dispo << endl;
+	*file << m_id_client << endl;
     *file << "###" << endl;
 }
 

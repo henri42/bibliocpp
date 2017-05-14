@@ -9,9 +9,9 @@ user::user()
     m_id_user = 0;
 }
 
-user::user(mediatheque* new_mediatheque)
+user::user(mediatheque* new_mediatheque, int id)
 {
-    m_id_user = 0;
+    m_id_user = id;
     m_mediatheque = new_mediatheque;
     m_actif = true;
 }
@@ -19,6 +19,10 @@ user::user(mediatheque* new_mediatheque)
 user::~user()
 {
 
+}
+int user::getIdUser()
+{
+    return m_id_user;
 }
 
 bool user::is_active()
@@ -58,12 +62,14 @@ int user::search(string saisie)
         m_is_saved = m_mediatheque->save_to_file("save_search.txt");
 
     return m_mediatheque->search_media_bib(saisie, result_search);
+
 }
 
 void user::clear()
 {
     if (m_is_saved)
         m_is_saved = !(m_mediatheque->load_from_file("save_search.txt"));
+
 }
 
 void user::help()
@@ -81,14 +87,19 @@ void user::help()
 
 bool user::transaction(int id, int trans)
 {
-   if (trans == EMPRUNTER)
-       return m_mediatheque->emprunter(id, m_id_user);
-   else if (trans == RESERVER)
-       return m_mediatheque->reserver(id, m_id_user);
-   else if (trans == RENDRE)
-       return m_mediatheque->rendre(id, m_id_user);
-   else
-       return false;
+    bool res = false;
+    if (trans == EMPRUNTER)
+       res = m_mediatheque->emprunter(id, m_id_user);
+    else if (trans == RESERVER)
+       res = m_mediatheque->reserver(id, m_id_user);
+    else if (trans == RENDRE)
+       res = m_mediatheque->rendre(id, m_id_user);
+    return res;
+}
+
+bool user::reload()
+{
+    return m_mediatheque->load_from_file("active_bib.txt");
 }
 
 void user::add(int type)
@@ -180,6 +191,14 @@ void user::lecture_commande()
                 cout << "Chargement de la médiathèque depuis " << arg << " réussi" << endl;
             else
                 cout << "Chargement non effectué" << endl;
+        }
+
+        else if (!cmd.compare("RELOAD"))
+        {
+            if (reload())
+                cout << "Actualisation de la bibliothèque active réussie" << endl;
+            else
+                cout << "Actualisation non effectuée" << endl;
         }
 
         else if (!cmd.compare("SAVE"))

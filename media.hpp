@@ -30,7 +30,7 @@ protected:
 public:
 	media();
 	media(int type);
-	media(std::string auteur, std::string nom, int type, int dispo);
+	media(std::string auteur, std::string nom, int type, int dispo, int client);
 	virtual ~media();
 
 	virtual void affiche();

@@ -12,17 +12,13 @@ cd_dvd::cd_dvd(int type) : vhs()//constructeur bateau
     m_type = type;
 }
 
-cd_dvd::cd_dvd(int piste, int duree, string maison_production, string auteur, string nom, int dispo, int type) : vhs(duree, maison_production, auteur, nom, dispo)
+cd_dvd::cd_dvd(int piste, int duree, string maison_production, string auteur, string nom, int type, int dispo, int client) : vhs(duree, maison_production, auteur, nom, dispo, client)
 {
     m_piste = piste;
     m_type = type;
 }
 
-cd_dvd::cd_dvd(string piste, string duree, string maison_production, string auteur, string nom, int type) : vhs(duree, maison_production, auteur, nom)
-{
-    m_piste = stoi(piste);
-    m_type = type;
-}
+
 
 cd_dvd::~cd_dvd()
 {

@@ -16,16 +16,9 @@ ressource_num::ressource_num() : media(RESSOURCE)//constructeur bateau
     cin.ignore();
 }
 
-ressource_num::ressource_num(int taille, string format, string chemin, string auteur, string nom, int dispo) : media(auteur, nom, RESSOURCE, dispo)
+ressource_num::ressource_num(int taille, string format, string chemin, string auteur, string nom, int dispo, int client) : media(auteur, nom, RESSOURCE, dispo, client)
 {
     m_taille = taille;
-    m_format = format;
-    m_chemin = chemin;
-}
-
-ressource_num::ressource_num(string taille, string format, string chemin, string auteur, string nom) : media(auteur, nom, RESSOURCE, DISPONIBLE)
-{
-    m_taille = stoi(taille);
     m_format = format;
     m_chemin = chemin;
 }

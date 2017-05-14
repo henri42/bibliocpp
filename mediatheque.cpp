@@ -11,7 +11,7 @@ std::vector<media*> stock_recherche;
 
 mediatheque::mediatheque()
 {
-
+    load_from_file("active_bib.txt");
 }
 
 mediatheque::~mediatheque()
@@ -42,6 +42,12 @@ int mediatheque::search_media_bib(string saisie, vector<media*> stock_recherche)
 
     if (counter != 0)
         m_biblio = stock_recherche;
+
+    while (!stock_recherche.empty())
+    {
+        delete stock_recherche.back();
+        stock_recherche.pop_back();
+    }
 
     return counter;
 }
@@ -146,23 +152,36 @@ void mediatheque::affiche(int indice) //Affiche le média d'indice "indice" en d
 
 void mediatheque::ajout(int type, std::vector<std::string> donnees, std::vector<std::string> articles)
 {
+    int dispo, client, annee, pages, duree, piste, taille;
+    client = stoi(donnees.back());
+    donnees.pop_back();
+	dispo = stoi(donnees.back());
+
 	switch(type)
 	{
 		case LIVRE :
-			m_biblio.emplace_back(new livre(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], donnees[6]));
+            annee = stoi(donnees[1]);
+            pages = stoi(donnees[2]);
+			m_biblio.emplace_back(new livre(annee, pages, donnees[3], donnees[4], donnees[5], donnees[6], dispo, client));
 			break;
 		case REVUE :
-			m_biblio.emplace_back(new revue(donnees[1], articles, donnees[2], donnees[3], donnees[4], donnees[5], donnees[6], donnees[7]));
+			annee = stoi(donnees[2]);
+			pages = stoi(donnees[3]);
+			m_biblio.emplace_back(new revue(donnees[1], articles, annee, pages, donnees[4], donnees[5], donnees[6], donnees[7], dispo, client));
 			break;
 		case VHS :
-			m_biblio.emplace_back(new vhs(donnees[1], donnees[2], donnees[3], donnees[4]));
+			duree = stoi(donnees[1]);
+			m_biblio.emplace_back(new vhs(duree, donnees[2], donnees[3], donnees[4], dispo, client));
 			break;
         case CD :
         case DVD :
-            m_biblio.emplace_back(new cd_dvd(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5], type));
+			piste = stoi(donnees[1]);
+			duree = stoi(donnees[2]);
+            m_biblio.emplace_back(new cd_dvd(piste, duree, donnees[3], donnees[4], donnees[5], type, dispo, client));
 			break;
 		case RESSOURCE :
-            m_biblio.emplace_back(new ressource_num(donnees[1], donnees[2], donnees[3], donnees[4], donnees[5]));
+			taille = stoi(donnees[1]);
+            m_biblio.emplace_back(new ressource_num(taille, donnees[2], donnees[3], donnees[4], donnees[5], dispo, client));
 			break;
 		default:
 			break;
@@ -177,6 +196,7 @@ void mediatheque::ajout(int type)
 			m_biblio.emplace_back(new livre());
 			break;
 		case REVUE :
+			m_biblio.emplace_back(new revue());
 			break;
 		case VHS :
 			m_biblio.emplace_back(new vhs());
@@ -218,12 +238,9 @@ bool mediatheque::rendre(int indice, int client)
 
 void mediatheque::reset()
 {
-    unsigned long taille = m_biblio.size();
-
-    for (int i = 0; i < taille; i++)
+    while (!m_biblio.empty())
     {
-        delete m_biblio[i];
+        delete m_biblio.back();
         m_biblio.pop_back();
     }
-	//m_biblio.clear();
 }

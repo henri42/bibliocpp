@@ -4,20 +4,27 @@
 using namespace std;
 
 
-revue::revue()
+revue::revue() : livre()
 {
-	m_nb_articles = 0;
+	string buffer;
+	m_type = REVUE;
+	cout << "Quel est l'éditeur ?" << endl;
+	getline(cin, m_editeur);
+	cout << "Combien la revue compte d'articles ?" << endl;
+	cin >> m_nb_articles;
+	cin.ignore();
+	for (int i = 0; i<m_nb_articles; i++)
+	{
+		cout << "Nom de l'article " << i+1 << ":" << endl;
+		getline(cin, buffer);
+		m_liste_articles.push_back(buffer);
+		cout << "Résumé de l'article " << i+1 << ":" << endl;
+		getline(cin, buffer);
+		m_liste_articles.push_back(buffer);
+	}
 }
 
-revue::revue(int nb_articles, string editeur, vector<string> liste_articles, int annee, int pages, string collection, string resume, string auteur, string nom, int dispo) : livre(annee, pages, collection, resume, auteur, nom, dispo)
-{
-    m_type = REVUE;
-	m_nb_articles = nb_articles;
-	m_editeur = editeur;
-	m_liste_articles = liste_articles;
-}
-
-revue::revue(string editeur, vector<string> liste_articles, string annee, string pages, string collection, string resume, string auteur, string nom) : livre(annee, pages, collection, resume, auteur, nom)
+revue::revue(string editeur, vector<string> liste_articles, int annee, int pages, string collection, string resume, string auteur, string nom, int dispo, int client) : livre(annee, pages, collection, resume, auteur, nom, dispo, client)
 {
     m_type = REVUE;
 	m_nb_articles = (int)liste_articles.size()/2;
