@@ -19,6 +19,8 @@ public:
     QLabel* title;
     QLabel* bibliozer;
 
+    QString text_search;
+
 public:
     clientMenu(QWidget* conteneur);
     ~clientMenu();

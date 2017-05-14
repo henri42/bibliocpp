@@ -15,6 +15,8 @@ mainWindow::mainWindow() : QWidget()
 
     QObject::connect(m_logmenu->login, SIGNAL(clicked()), this, SLOT(connexion()));
 
+    m_adminmenu->text_search = (m_adminmenu->search)->text();
+
     QObject::connect(m_adminmenu->logout, SIGNAL(clicked()), m_adminmenu, SLOT(hide()));
     QObject::connect(m_adminmenu->logout, SIGNAL(clicked()), m_logmenu, SLOT(show()));
 
@@ -22,6 +24,8 @@ mainWindow::mainWindow() : QWidget()
 
     QObject::connect(m_clientmenu->logout, SIGNAL(clicked()), m_clientmenu, SLOT(hide()));
     QObject::connect(m_clientmenu->logout, SIGNAL(clicked()), m_logmenu, SLOT(show()));
+
+    m_clientmenu->text_search = (m_clientmenu->search)->text();
 }
 
 void mainWindow::connexion()

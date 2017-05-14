@@ -15,6 +15,7 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     list = new QPushButton("Parcourir",this);
     logout = new QPushButton("Deconnexion",this);
     help = new QPushButton("?",this);
+    go = new QPushButton("Go!",this);
 
 
     search = new QLineEdit(this);
@@ -31,13 +32,15 @@ adminMenu::adminMenu(QWidget* conteneur) : QWidget(conteneur)
     load->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     save->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     list->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
-    search->setFixedSize(5*LARGEUR_BTN+50,HAUTEUR_BTN);
+    search->setFixedSize(5*LARGEUR_BTN-10,HAUTEUR_BTN);
     logout->setFixedSize(LARGEUR_BTN,HAUTEUR_BTN);
     help->setFixedSize(HAUTEUR_BTN,HAUTEUR_BTN);
+    go->setFixedSize(LARGEUR_BTN/2,HAUTEUR_BTN);
 
 
     //positions
-    search->move(400-search->width()/2,260);
+    search->move(375-(search->width()/2)-5,260);
+    go->move(380+search->width()/2,260);
     list->move(175-list->width()/2,search->y()+60);
     load->move(287-load->width()/2,search->y()+60);
     save->move(400-save->width()/2,search->y()+60);

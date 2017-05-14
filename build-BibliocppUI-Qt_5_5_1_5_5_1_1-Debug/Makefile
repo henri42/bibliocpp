@@ -14,7 +14,7 @@ CC            = /Applications/Xcode.app/Contents/Developer/usr/bin/gcc
 CXX           = /Applications/Xcode.app/Contents/Developer/usr/bin/g++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -std=c++11 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -std=c++0x -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I../BibliocppUI -I. -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/AGL.framework/Headers -I/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/macx-g++ -F/usr/local/Cellar/qt@5.5/5.5.1_1/lib
 QMAKE         = /usr/local/Cellar/qt@5.5/5.5.1_1/bin/qmake
 DEL_FILE      = rm -f
@@ -53,13 +53,33 @@ SOURCES       = ../BibliocppUI/main.cpp \
 		../BibliocppUI/logmenu.cpp \
 		../BibliocppUI/mainwindow.cpp \
 		../BibliocppUI/vueliste.cpp \
-		../BibliocppUI/clientmenu.cpp moc_mainwindow.cpp
+		../BibliocppUI/clientmenu.cpp \
+		../mediatheque.cpp \
+		../saisie.cpp \
+		../user.cpp \
+		../admin.cpp \
+		../cd_dvd.cpp \
+		../livre.cpp \
+		../media.cpp \
+		../ressource_num.cpp \
+		../revue.cpp \
+		../VHS.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		adminmenu.o \
 		logmenu.o \
 		mainwindow.o \
 		vueliste.o \
 		clientmenu.o \
+		mediatheque.o \
+		saisie.o \
+		user.o \
+		admin.o \
+		cd_dvd.o \
+		livre.o \
+		media.o \
+		ressource_num.o \
+		revue.o \
+		VHS.o \
 		moc_mainwindow.o
 DIST          = ../build_bibliozer/livre.png \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/spec_pre.prf \
@@ -188,6 +208,7 @@ DIST          = ../build_bibliozer/livre.png \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/resolve_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_post.prf \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/c++11.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_post.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/objective_c.prf \
@@ -208,12 +229,31 @@ DIST          = ../build_bibliozer/livre.png \
 		../BibliocppUI/logmenu.h \
 		../BibliocppUI/mainwindow.h \
 		../BibliocppUI/vueliste.h \
-		../BibliocppUI/clientmenu.h ../BibliocppUI/main.cpp \
+		../BibliocppUI/clientmenu.h \
+		../admin.hpp \
+		../media.hpp \
+		../mediatheque.hpp \
+		../user.hpp \
+		../cd_dvd.hpp \
+		../livre.hpp \
+		../ressource_num.hpp \
+		../revue.hpp \
+		../VHS.hpp ../BibliocppUI/main.cpp \
 		../BibliocppUI/adminmenu.cpp \
 		../BibliocppUI/logmenu.cpp \
 		../BibliocppUI/mainwindow.cpp \
 		../BibliocppUI/vueliste.cpp \
-		../BibliocppUI/clientmenu.cpp
+		../BibliocppUI/clientmenu.cpp \
+		../mediatheque.cpp \
+		../saisie.cpp \
+		../user.cpp \
+		../admin.cpp \
+		../cd_dvd.cpp \
+		../livre.cpp \
+		../media.cpp \
+		../ressource_num.cpp \
+		../revue.cpp \
+		../VHS.cpp
 QMAKE_TARGET  = BibliocppUI
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = BibliocppUI.app/Contents/MacOS/BibliocppUI
@@ -223,6 +263,7 @@ QMAKE_COMP_QMAKE_OBJECTIVE_CFLAGS = -pipe \
 		-g \
 		-isysroot \
 		/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk \
+		-std=c++0x \
 		-mmacosx-version-min=10.7 \
 		-Wall \
 		-W
@@ -381,6 +422,7 @@ Makefile: ../BibliocppUI/BibliocppUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspec
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/resolve_config.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_post.prf \
+		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/c++11.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_post.prf \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/objective_c.prf \
@@ -528,6 +570,7 @@ Makefile: ../BibliocppUI/BibliocppUI.pro /usr/local/Cellar/qt@5.5/5.5.1_1/mkspec
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_pre.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/resolve_config.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/default_post.prf:
+/usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/c++11.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/sdk.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/default_post.prf:
 /usr/local/Cellar/qt@5.5/5.5.1_1/mkspecs/features/mac/objective_c.prf:
@@ -577,8 +620,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h ../BibliocppUI/logmenu.h ../BibliocppUI/mainwindow.h ../BibliocppUI/vueliste.h ../BibliocppUI/clientmenu.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp ../BibliocppUI/logmenu.cpp ../BibliocppUI/mainwindow.cpp ../BibliocppUI/vueliste.cpp ../BibliocppUI/clientmenu.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/adminmenu.h ../BibliocppUI/logmenu.h ../BibliocppUI/mainwindow.h ../BibliocppUI/vueliste.h ../BibliocppUI/clientmenu.h ../admin.hpp ../media.hpp ../mediatheque.hpp ../user.hpp ../cd_dvd.hpp ../livre.hpp ../ressource_num.hpp ../revue.hpp ../VHS.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../BibliocppUI/main.cpp ../BibliocppUI/adminmenu.cpp ../BibliocppUI/logmenu.cpp ../BibliocppUI/mainwindow.cpp ../BibliocppUI/vueliste.cpp ../BibliocppUI/clientmenu.cpp ../mediatheque.cpp ../saisie.cpp ../user.cpp ../admin.cpp ../cd_dvd.cpp ../livre.cpp ../media.cpp ../ressource_num.cpp ../revue.cpp ../VHS.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -743,6 +786,64 @@ clientmenu.o: ../BibliocppUI/clientmenu.cpp ../BibliocppUI/clientmenu.h \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/QLabel \
 		/usr/local/Cellar/qt@5.5/5.5.1_1/lib/QtWidgets.framework/Headers/qlabel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o clientmenu.o ../BibliocppUI/clientmenu.cpp
+
+mediatheque.o: ../mediatheque.cpp ../mediatheque.hpp \
+		../media.hpp \
+		../livre.hpp \
+		../VHS.hpp \
+		../cd_dvd.hpp \
+		../revue.hpp \
+		../ressource_num.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mediatheque.o ../mediatheque.cpp
+
+saisie.o: ../saisie.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o saisie.o ../saisie.cpp
+
+user.o: ../user.cpp ../user.hpp \
+		../mediatheque.hpp \
+		../media.hpp \
+		../livre.hpp \
+		../VHS.hpp \
+		../cd_dvd.hpp \
+		../revue.hpp \
+		../ressource_num.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user.o ../user.cpp
+
+admin.o: ../admin.cpp ../admin.hpp \
+		../mediatheque.hpp \
+		../media.hpp \
+		../livre.hpp \
+		../VHS.hpp \
+		../cd_dvd.hpp \
+		../revue.hpp \
+		../ressource_num.hpp \
+		../user.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o admin.o ../admin.cpp
+
+cd_dvd.o: ../cd_dvd.cpp ../cd_dvd.hpp \
+		../VHS.hpp \
+		../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cd_dvd.o ../cd_dvd.cpp
+
+livre.o: ../livre.cpp ../livre.hpp \
+		../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o livre.o ../livre.cpp
+
+media.o: ../media.cpp ../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o media.o ../media.cpp
+
+ressource_num.o: ../ressource_num.cpp ../ressource_num.hpp \
+		../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ressource_num.o ../ressource_num.cpp
+
+revue.o: ../revue.cpp ../revue.hpp \
+		../livre.hpp \
+		../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o revue.o ../revue.cpp
+
+VHS.o: ../VHS.cpp ../VHS.hpp \
+		../media.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o VHS.o ../VHS.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

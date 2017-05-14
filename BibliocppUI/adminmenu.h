@@ -18,6 +18,7 @@ public:
     QPushButton* del;
     QPushButton* logout;
     QPushButton* help;
+    QPushButton* go;
 
     QLineEdit* search;
 
